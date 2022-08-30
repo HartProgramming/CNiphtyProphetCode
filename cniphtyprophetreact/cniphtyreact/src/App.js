@@ -1,11 +1,15 @@
-import FrontPage from './components/FrontPage/FrontPage';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout/Layout';
+import Home from './components/Home/Home';
 import './App.css';
 
 function App() {
   return (
-    <>
-      <FrontPage />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route index element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

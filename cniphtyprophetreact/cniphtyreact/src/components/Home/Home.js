@@ -1,10 +1,18 @@
 import './FrontPage.css';
+import { BrowserRouter, Route, Link, Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import EnterNoHover from './EnterNoHover.svg'
 import EnterHover from './EnterHoverButton.svg';
 import FrontBackground from './FrontPageBack.svg';
 
 
-function FrontPage() {
+function Home() {
+
+    const navigate = useNavigate();
+
+    const transitionMainApp = () =>{
+        navigate('/components/MainApplication/MainApplication')
+    }
 
     const enterHover = (e) => {
         e.target.src = EnterHover
@@ -23,9 +31,9 @@ function FrontPage() {
     return(
         <section className='frontpage-section'>
             <img className='frontpage-background' src={FrontBackground} alt='Background art containing CNFTs'></img>
-            <img className='enter-button-nohover' onMouseEnter={enterHover} onMouseLeave={enterNoHover} src={EnterNoHover} alt='Enter No Hover Button Effect'></img>
+            <img onClick={transitionMainApp} className='enter-button-nohover' onMouseEnter={enterHover} onMouseLeave={enterNoHover} src={EnterNoHover} alt='Enter No Hover Button Effect'></img>
         </section>
     )
 }
 
-export default FrontPage
+export default Home
