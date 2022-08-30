@@ -3,7 +3,7 @@ body{
     background-color: #5ce1e6; 
 }
 
-#root{
+#frontpage-section{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +20,7 @@ body{
     z-index: 1;
 }
 
-#button-image{
+.button-nohover{
     height: 200px;
     width: 300px;
     margin-top: 730px;
@@ -32,4 +32,15 @@ body{
     border-left: 7px solid black;
     border-right: 7px solid black;
     border-top: 5px solid black;
+}
+
+.button-hover{
+        height: 200px;
+    width: 300px;
+    margin-top: 730px;
+    align-self: center;
+    border-radius: 15%;
+    position: absolute;
+    z-index: 3;
+    border: 5px solid black;
 }
