@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background-color: #5ce1e6;
 }
 
 .frontpage-section {
@@ -13,11 +14,15 @@ body {
 .frontpage-background {
   position: absolute;
   z-index: 0;
+  height: 550px;
+  margin-top: 300px;
 }
 
 .enter-button-hover {
   position: absolute;
   z-index: 3;
+    height: 200px;
+  margin-top: 480px;
   border-bottom: 7px solid black;
   border-left: 5px solid black;
   border-right: 5px solid black;
@@ -28,6 +33,8 @@ body {
 .enter-button-nohover {
   position: absolute;
   z-index: 3;
+  height: 200px;
+  margin-top: 480px;
   border-bottom: 11px solid black;
   border-left: 7px solid black;
   border-right: 7px solid black;
