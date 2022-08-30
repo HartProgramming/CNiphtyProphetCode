@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+}
+
+.frontpage-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  position: relative;
+}
+
+.frontpage-background {
+  position: absolute;
+  z-index: 0;
+}
+
+.enter-button-hover {
+  position: absolute;
+  z-index: 3;
+  border-bottom: 7px solid black;
+  border-left: 5px solid black;
+  border-right: 5px solid black;
+  border-top: 3px solid black;
+  border-radius: 25px;
+}
+
+.enter-button-nohover {
+  position: absolute;
+  z-index: 3;
+  border-bottom: 11px solid black;
+  border-left: 7px solid black;
+  border-right: 7px solid black;
+  border-top: 5px solid black;
+  border-radius: 25px;
+}
