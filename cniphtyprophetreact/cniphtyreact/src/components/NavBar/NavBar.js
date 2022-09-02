@@ -1,10 +1,4 @@
-import 'NavBar.css';
-import BorrowNoHover from './BorrowNoHover.png';
-import MerchandiseNoHover from './MerchandiseNoHover.png';
-import DonateNoHover from './DonateNoHover.png';
-import CNFTFloorPriceNoHover from './CNFT Floor PriceNo Hover.png';
-import ADAEcosystemNoHover from './ADA Ecosystem PricesNo Hover';
-import LendingNoHover from './LendingNoHover.svg';
+import './NavBar.css';
 
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
@@ -18,22 +12,22 @@ function NavBar() {
                     <Link to='/'>Home</Link>
                 </li>
                 <li>
-                    <Link to='/borrow'><img src={BorrowNoHover} alt='Borrow Page Button' /></Link>
+                    <Link to='/borrow'>Borrow</Link>
                 </li>
                 <li>
-                    <Link to='/lend'><img src={LendingNoHover} alt='Lending Page Button' /></Link>
+                    <Link to='/lend'>Lend</Link>
                 </li>
                 <li>
-                    <Link to='/cnft'><img src={CNFTFloorPriceNoHover} alt='CNFT Floor Page Button' /></Link>
+                    <Link to='/cnft'>CNFTs</Link>
                 </li>
                 <li>
-                    <Link to='/ada_ecosystem'><img src={ADAEcosystemNoHover} alt='ADA Ecosytem Prices Page Button' /></Link>
+                    <Link to='/ada_ecosystem'>ADA Ecosystem</Link>
                 </li>
                 <li>
-                    <Link to='/merchandis'><img src={MerchandiseNoHover} alt='Link Button that takes you to ClockedOut Crew store' /></Link>
+                    <Link to='/merchandis'>Merchandise</Link>
                 </li>
                 <li>
-                    <Link to='/donate'><img src={DonateNoHover} alt='Donate Page Button' /></Link>
+                    <Link to='/donate'>Donate</Link>
                 </li>
             </ul>
         </nav>
