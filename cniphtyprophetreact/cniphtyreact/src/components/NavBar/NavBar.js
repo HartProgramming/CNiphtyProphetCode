@@ -6,6 +6,8 @@ import CNFTFloorPriceNoHover from './CNFT Floor PriceNo Hover.png';
 import ADAEcosystemNoHover from './ADA Ecosystem PricesNo Hover';
 import LendingNoHover from './LendingNoHover.svg';
 
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+
 function NavBar() {
 
 
@@ -19,7 +21,7 @@ function NavBar() {
                     <Link to='/borrow'><img src={BorrowNoHover} alt='Borrow Page Button' /></Link>
                 </li>
                 <li>
-                    <Link to='lending'><img src={LendingNoHover} alt='Lending Page Button' /></Link>
+                    <Link to='/lend'><img src={LendingNoHover} alt='Lending Page Button' /></Link>
                 </li>
                 <li>
                     <Link to='/cnft'><img src={CNFTFloorPriceNoHover} alt='CNFT Floor Page Button' /></Link>
