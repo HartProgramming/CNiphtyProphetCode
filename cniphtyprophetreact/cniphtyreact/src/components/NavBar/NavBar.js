@@ -6,28 +6,28 @@ function NavBar() {
 
 
     return (
-        <nav>
-            <ul>
-                <li>
-                    <Link to='/'>Home</Link>
+        <nav className='navbar'>
+            <ul className='navbar-list'>
+                <li className='navbar-list-item'>
+                    <Link to='/'><button className='navbar-button'>Home</button></Link>
                 </li>
-                <li>
-                    <Link to='/borrow'>Borrow</Link>
+                <li className='navbar-list-item'>
+                    <Link to='/borrow'><button className='navbar-button'>Borrow</button></Link>
                 </li>
-                <li>
-                    <Link to='/lend'>Lend</Link>
+                <li className='navbar-list-item'>
+                    <Link to='/lend'><button className='navbar-button'>Lend</button></Link>
                 </li>
-                <li>
-                    <Link to='/cnft'>CNFTs</Link>
+                <li className='navbar-list-item'>
+                    <Link to='/cnft'><button className='navbar-button'>CNFT</button></Link>
                 </li>
-                <li>
-                    <Link to='/ada_ecosystem'>ADA Ecosystem</Link>
+                <li className='navbar-list-item'>
+                    <Link to='/cardano'><button className='navbar-button'>Ecosystem</button></Link>
                 </li>
-                <li>
-                    <Link to='/merchandis'>Merchandise</Link>
+                <li className='navbar-list-item'>
+                    <Link to='/merchandise'><button className='navbar-button'>Merchandise</button></Link>
                 </li>
-                <li>
-                    <Link to='/donate'>Donate</Link>
+                <li className='navbar-list-item'>
+                    <Link to='/donate'><button className='navbar-button'>Donate</button></Link>
                 </li>
             </ul>
         </nav>

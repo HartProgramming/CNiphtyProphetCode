@@ -4,14 +4,15 @@ import './Home.css'
 function Home() {
 
     return (
-        <section>
-            <div>
+        <section className='section-home'>
+            <div className='image-div'>
                 <img src={Background} alt='Hompage Background' />
             </div>
-            <article>
-                <div>
-                    <h1>Borrowing/Lending Assistance</h1>
-                    <ul>
+            <article className='article-cards'>
+                <div className='card-div'>
+                    <h2>Borrowing/Lending Assistance</h2>
+                    <hr className='h2-hr'></hr>
+                    <ul className='card-list'>
                         <li>
                             <h3>Potential profit/loss on borrowing</h3>
                         </li>
@@ -19,13 +20,14 @@ function Home() {
                             <h3>Profit on lending</h3>
                         </li>
                         <li>
-                            <h3>Helps determine whether to lend, trade, buy NFT, .etc</h3>
+                            <h3>Determine whether to lend, trade, buy NFT, .etc</h3>
                         </li>
                     </ul>
                 </div>
-                <div>
-                    <h1>ADA Ecosystem</h1>
-                    <ul>
+                <div className='card-div'>
+                    <h2>ADA Ecosystem</h2>
+                    <hr className='h2-hr'></hr>
+                    <ul className='card-list'>
                         <li>
                             <h3>Price of top Cardano projects</h3>
                         </li>
@@ -37,9 +39,10 @@ function Home() {
                         </li>
                     </ul>
                 </div>
-                <div>
-                    <h1>CNFT Floors</h1>
-                    <ul>
+                <div className='card-div'>
+                    <h2>CNFT Floors</h2>
+                    <hr className='h2-hr'></hr>
+                    <ul className='card-list'>
                         <li>
                             <h3>List of the top CNFTs available for lending/borrowing</h3>
                         </li>
@@ -51,17 +54,20 @@ function Home() {
                         </li>
                     </ul>
                 </div>
-                <div>
-                    <h1>Merchandise/Donate</h1>
-                    <ul>
+                <div className='card-div'>
+                    <h2>Merchandise/Donate</h2>
+                    <hr className='h2-hr'></hr>
+                    <ul className='card-list'>
                         <li>
-                            <h3>Rep the ClockedOut Crew by visiting the store</h3>
+                            <h3>Rep the ClockedOut Crew</h3>
                         </li>
+                        <hr></hr>
                         <li>
                             <h3>Clothes, mugs, etc.</h3>
                         </li>
+                        <hr></hr>
                         <li>
-                            <h3>Donate to help bolster the app and the ClockedOut Crew ecosystem</h3>
+                            <h3>Donate to improve the app and the ClockedOut Crew ecosystem</h3>
                         </li>
                     </ul>
                 </div>
