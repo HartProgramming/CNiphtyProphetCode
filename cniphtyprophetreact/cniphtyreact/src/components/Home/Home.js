@@ -14,13 +14,15 @@ function Home() {
                     <hr className='h2-hr'></hr>
                     <ul className='card-list'>
                         <li>
-                            <h3>Potential profit/loss on borrowing</h3>
+                            Potential profit/loss on borrowing
                         </li>
+                        <hr></hr>
                         <li>
-                            <h3>Profit on lending</h3>
+                            Profit on lending
                         </li>
+                        <hr></hr>
                         <li>
-                            <h3>Determine whether to lend, trade, buy NFT, .etc</h3>
+                            Determine whether to lend, trade, buy NFT, .etc
                         </li>
                     </ul>
                 </div>
@@ -29,13 +31,15 @@ function Home() {
                     <hr className='h2-hr'></hr>
                     <ul className='card-list'>
                         <li>
-                            <h3>Price of top Cardano projects</h3>
+                            Price of top Cardano projects
                         </li>
+                        <hr></hr>
                         <li>
-                            <h3>Data on top Cardano projects</h3>
+                            Data on top Cardano projects
                         </li>
+                        <hr></hr>
                         <li>
-                            <h3>Aids in borrow/lending decision</h3>
+                            Aids in borrow/lending decision
                         </li>
                     </ul>
                 </div>
@@ -44,13 +48,15 @@ function Home() {
                     <hr className='h2-hr'></hr>
                     <ul className='card-list'>
                         <li>
-                            <h3>List of the top CNFTs available for lending/borrowing</h3>
+                            List of the top CNFTs available for lending/borrowing
                         </li>
+                        <hr></hr>
                         <li>
-                            <h3>Up to date floor prices</h3>
+                            Up to date floor prices
                         </li>
+                        <hr></hr>
                         <li>
-                            <h3>24hr Volume provided</h3>
+                            24hr Volume provided
                         </li>
                     </ul>
                 </div>
@@ -59,15 +65,15 @@ function Home() {
                     <hr className='h2-hr'></hr>
                     <ul className='card-list'>
                         <li>
-                            <h3>Rep the ClockedOut Crew</h3>
+                            Rep the ClockedOut Crew
                         </li>
                         <hr></hr>
                         <li>
-                            <h3>Clothes, mugs, etc.</h3>
+                            Clothes, mugs, etc.
                         </li>
                         <hr></hr>
                         <li>
-                            <h3>Donate to improve the app and the ClockedOut Crew ecosystem</h3>
+                            Donate to improve the app and the ClockedOut Crew ecosystem
                         </li>
                     </ul>
                 </div>

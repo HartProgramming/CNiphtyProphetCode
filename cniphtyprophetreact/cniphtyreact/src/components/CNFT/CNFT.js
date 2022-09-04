@@ -1,10 +1,18 @@
+import './CNFT.css';
+import cnftArray from '../CNFTProjectData';
+import CNFTCard from './CNFTCard';
 
+function CNFT() {
 
-function CNFT(){
+    console.log(cnftArray[4].policyID)
 
-
-    return(
-        <h1>CNFT Floors</h1>
+    return (
+        <section>
+            <div>
+                <h1>CNFT Data</h1>
+            </div>
+            <CNFTCard />
+        </section>
     )
 }
 
