@@ -1,5 +1,6 @@
 import cnftArray from "../CNFTProjectData";
 import './CNFTCard.css';
+import React from 'react'
 
 
 function CNFTCard() {

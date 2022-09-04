@@ -1,5 +1,6 @@
 import Background from './CNiphtyProphetAdjustBackground.svg';
 import './Home.css'
+import React from 'react'
 
 function Home() {
 
