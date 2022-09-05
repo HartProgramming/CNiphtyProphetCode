@@ -1,0 +1,87 @@
+
+
+.borrow-area{
+    background-color: white;
+    width: 670px;
+    margin: auto;
+    border-radius: 25px;
+    margin-bottom: 100px;
+}
+
+.borrow-section {
+  display: grid;
+  text-align: left;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 10;
+  height: 800px;
+  margin-top: 50px;
+}
+
+.borrow-image{
+    display: flex;
+    margin: auto;
+    padding-top: 50px;
+    margin-top: 190px;
+    justify-content: center;
+}
+
+.label {
+  font-size: 24px;
+  padding: 25px;
+  margin: 35px;
+  width: 400px;
+  font-weight: 700;
+  font-family: sans-serif;
+}
+
+.input {
+  padding: 12px;
+  font-size: 18px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border-radius: 25px;
+  color: black;
+  text-align: right;
+  font-weight: 589;
+  background-color: #f2f2f2;
+}
+
+#project {
+  margin-left: 45px;
+  text-align: center;
+}
+
+#floor-price {
+}
+
+#loan-length {
+  margin-left: -20px;
+}
+
+#loan-interest {
+  margin-left: 36px;
+}
+
+#ada-price {
+  margin-left: 10px;
+}
+
+#loan-value {
+    margin-left: -15px;
+}
+
+#buy-back {
+  margin-left: 3px;
+}
+
+#repay {
+  margin-left: -10px;
+}
+
+#profit-loss {
+  margin-left: 140px;
+}

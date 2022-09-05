@@ -2,37 +2,11 @@ import CNFTCard from "./CNFT/CNFTCard";
 import React from "react";
 import axios from 'axios';
 
-
-
-async function collectCNFT(policyID, name) {
-    const config = { headers: { Accept: "application/json" } }
-
-    const params = {
-        policy: policyID,
-    }
-    const res = await axios.get(`https://api.opencnft.io/1/policy/${encodeURIComponent(params.policy)}`, config)
-    const project = name;
-    const picture = res.data.thumbnail;
-    const totalVolume = res.data.total_volume;
-    const assetsMinted = res.data.asset_minted;
-    const floorPrice = res.data.floor_price;
-
-    const object = {
-        project: project,
-        image: picture,
-        volume: totalVolume.toFixed(2),
-        assets: assetsMinted,
-        floor: floorPrice.toFixed(2),
-        mktCap: assetsMinted * floorPrice
-    }
-    return object;
-};
-
-
 class NFTprops {
-    constructor(id, policyID) {
+    constructor(id, policyID, project) {
         this.id = id;
         this.policyID = policyID;
+        this.project = project;
     }
 }
 
@@ -145,6 +119,5 @@ const cnftArray = [adaDiggies1, adaDiggies2, adaHandle, adaInvadazS1, adaNinjasS
     jarHeads, knightsCornucopias, lazyLlamas, lazyLlamasMutants, lionLegendsS1, lionLegendsS2, lionLegendsS3, mandrillz, marsBirds, meltingMoonboy, metaPXLZ, mocossiITOs, mutantToads, oldMoneyBackBills, outerspace, overExposed, overExposedMekanism, parisianBuilding, pavia, pavs, pendulum, phantomKey, puurrtyCats, raisonDetreCryo,
     saltySeagullsSociety, sealSociety, smoothYetiMtnClub, smoothYetiSnowmobileParts, spacePugsAlpha, spaceBudz, uglyBros, uglyBrosXmas, uglyBrosDefinitive, uglyBrosValentine, unsignedAlgorithms, voyagePlanets, vyFI, woodLordsEarlyBird, yummiUniverseNaru, yummiUniverseSnoopy, jellyCubes, wildTangz];
 
-console.log(collectCNFT('83cb87b69639e20d7c99755fcfc310fb47882c3591778a3c869ea34c', 'ADA Digies'))
 
 export default cnftArray;
