@@ -61,7 +61,7 @@ hr {
   width: 500px;
 }
 
-.label {
+.lend-label {
   font-size: 24px;
   padding: 25px;
   margin: 15px;
@@ -71,7 +71,7 @@ hr {
   font-family: sans-serif;
 }
 
-.input {
+.lend-input {
   padding: 12px;
   font-size: 18px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
@@ -84,39 +84,36 @@ hr {
   background-color: #f2f2f2;
 }
 
-#project {
+#lend-project {
   margin-left: 100px;
   text-align: center;
 }
 
-#floor-price {
+#lend-floor-price {
   margin-left: 56px;
 }
 
-#loan-length {
+#lend-loan-length {
   margin-left: 39px;
 }
 
-#loan-interest {
+#lend-loan-interest {
   margin-left: 96px;
 }
 
-#ada-price {
+#lend-ada-price {
   margin-left: 67px;
 }
 
-#loan-value {
+#lend-loan-value {
   margin-left: 8px;
 }
 
-#buy-back {
+#lend-buy-back {
   margin-left: 53px;
 }
 
-#repay {
+#lend-repay {
   margin-left: 28px;
 }
 
-#profit-loss {
-  margin-left: 63px;
-}

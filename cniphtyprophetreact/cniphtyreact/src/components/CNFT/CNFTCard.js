@@ -1,16 +1,12 @@
-import CNFTProjectData from '../CNFTProjectData'
 import './CNFTCard.css';
 import React from 'react';
-import { useState } from 'react';
-import axios from 'axios';
-import Duquackinator from './DUQUACKINATOR.svg'
-
 
 function CNFTCard(props) {
 
     return (
+    
         <div className='cnft-card-div'>
-            <img className='cnft-img' src={props.image}></img>
+            <img alt='imgprop' className='cnft-img' src={props.image}></img>
             <div className='div-ul'>
                 <ul className='cnft-card-ul'>
                     <ul>

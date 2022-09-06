@@ -1,6 +1,3 @@
-import CNFTCard from "./CNFT/CNFTCard";
-import React from "react";
-import axios from 'axios';
 
 class NFTprops {
     constructor(id, policyID, project) {
