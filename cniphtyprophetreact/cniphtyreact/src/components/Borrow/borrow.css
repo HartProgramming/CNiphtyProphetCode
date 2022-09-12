@@ -9,6 +9,13 @@
   margin-bottom: -120px;
 }
 
+.video{
+  display: flex;
+  margin: auto;
+  margin-bottom: -50px;
+  margin-top: 80px;
+}
+
 .borrow-area {
   background-image: linear-gradient(to bottom, rgb(49, 49, 49), rgb(20, 20, 20));
   width: 670px;

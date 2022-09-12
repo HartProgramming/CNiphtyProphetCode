@@ -1,4 +1,4 @@
-import Background from './CNiphtyProphetAdjustBackground.svg';
+import Background from './CNiphtyProphetTemporaryLogo.svg';
 import './Home.css'
 import React from 'react'
 
@@ -12,68 +12,56 @@ function Home() {
             <article className='article-cards'>
                 <div className='card-div'>
                     <h2>Borrowing/Lending Assistance</h2>
-                    <hr className='h2-hr'></hr>
                     <ul className='card-list'>
-                        <li>
+                        <li className='list-item-home'>
                             Potential profit/loss on borrowing
                         </li>
-                        <hr></hr>
-                        <li>
+                        <li className='list-item-home'>
                             Profit on lending
                         </li>
-                        <hr></hr>
-                        <li>
+                        <li className='list-item-home'>
                             Determine whether to lend, trade, buy NFT, .etc
                         </li>
                     </ul>
                 </div>
                 <div className='card-div'>
                     <h2>ADA Ecosystem</h2>
-                    <hr className='h2-hr'></hr>
                     <ul className='card-list'>
-                        <li>
+                        <li className='list-item-home'>
                             Price of top Cardano projects
                         </li>
-                        <hr></hr>
-                        <li>
+                        <li className='list-item-home'>
                             Data on top Cardano projects
                         </li>
-                        <hr></hr>
-                        <li>
+                        <li className='list-item-home'>
                             Aids in borrow/lending decision
                         </li>
                     </ul>
                 </div>
                 <div className='card-div'>
                     <h2>CNFT Floors</h2>
-                    <hr className='h2-hr'></hr>
                     <ul className='card-list'>
-                        <li>
+                        <li className='list-item-home'>
                             List of the top CNFTs available for lending/borrowing
                         </li>
-                        <hr></hr>
-                        <li>
+                        <li className='list-item-home'>
                             Up to date floor prices
                         </li>
-                        <hr></hr>
-                        <li>
+                        <li className='list-item-home'>
                             24hr Volume provided
                         </li>
                     </ul>
                 </div>
                 <div className='card-div'>
                     <h2>Merchandise/Donate</h2>
-                    <hr className='h2-hr'></hr>
                     <ul className='card-list'>
-                        <li>
+                        <li className='list-item-home'>
                             Rep the ClockedOut Crew
                         </li>
-                        <hr></hr>
-                        <li>
+                        <li className='list-item-home'>
                             Clothes, mugs, etc.
                         </li>
-                        <hr></hr>
-                        <li>
+                        <li className='list-item-home'>
                             Donate to improve the app and the ClockedOut Crew ecosystem
                         </li>
                     </ul>

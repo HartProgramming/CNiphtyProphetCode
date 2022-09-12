@@ -11,6 +11,7 @@ import Sundae from './sundae-logo.svg';
 import VyFi from './vyfi-logo.svg';
 import Wingriders from './WingRiders-logo.svg';
 import World from './worldmobile-logo.svg';
+import NativeTokens from './NativeTokensGoat.svg'
 
 class Ecosystem {
     constructor(id, name, coinId, img) {
@@ -36,7 +37,7 @@ function Cardano() {
 
     return (
         <div className='cardano-ecosystem'>
-            <img className='cardano-header' src={Header}></img>
+            <img className='native-back' src={NativeTokens}></img>
             <div className='cardano-data-div'>
                 <table className='cardano-table'>
                     <tr className='cardano-table-row'>

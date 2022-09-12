@@ -2,12 +2,15 @@ import React from 'react'
 import './borrow.css'
 import Header from './BorrowHeader3.svg'
 import Duquackinator from '../CNFT/DUQUACKINATOR.svg'
+import Video from './excelmov.mp4'
+import ReactPlayer from 'react-player';
 
 function Borrow() {
 
 
     return (
         <section>
+            <ReactPlayer className='video' url={Video} loop muted controls='true' playing />
             <img className='borrow-h1' src={Header}></img>
             <div className='borrow-area'>
                 <div className='borrow-area-inside'>

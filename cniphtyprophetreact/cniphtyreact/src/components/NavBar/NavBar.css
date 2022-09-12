@@ -1,9 +1,10 @@
 
 .navbar{
-    background-image: linear-gradient(to right, #38b6ff, #5ce1e6);
+    background-image: linear-gradient(to right, #3842ff, #1bcedb);
     display: flex;
     margin: auto;
     height: 90px;
+    font-family: Geneva, Verdana, sans-serif;
     border-bottom: 2px solid black;
 }
 
@@ -30,8 +31,9 @@
 .item{
     text-decoration: none;
     color: black;
-    font-weight: 500;
-    font-family: sans-serif;
+    letter-spacing: 1.2px;
+    font-weight: 600;
+    font-size: 20px;
 }
 
 .item:hover{

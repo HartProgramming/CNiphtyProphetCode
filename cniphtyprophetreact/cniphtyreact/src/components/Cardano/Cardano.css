@@ -6,6 +6,14 @@
   justify-content: center;
 }
 
+.native-back {
+  height: 300px;
+  width: 500px;
+  margin: auto;
+  display: flex;
+  margin-top: 80px;
+}
+
 .cardano-header {
   height: 500px;
   margin-bottom: -120px;
@@ -23,25 +31,26 @@
   display: flex;
 }
 
-.cardano-table{
-    border: 2px solid black;
-    width: 100%;
+.cardano-table {
+  width: 100%;
 }
 
-.coin-symbol{
-    height: 50px;
-    padding-left: 10px;
+.coin-symbol {
+  height: 50px;
+  padding-left: 10px;
 }
 
-tr, td, th{
-    border: 3px solid rgb(21, 21, 21);
+tr,
+td,
+th {
+  border: 3px solid rgb(21, 21, 21);
 }
 
-th{
-    height: 50px;
-    text-align: center;
+th {
+  height: 50px;
+  text-align: center;
 }
 
-.cardano-table-row{
-    border: 2px solid red;
+.cardano-table-row {
+  border: 2px solid red;
 }
