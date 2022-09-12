@@ -1,12 +1,13 @@
 import './NavBar.css';
 import React from 'react'
 import { BrowserRouter, Route, Link } from 'react-router-dom';
-
+import Goat from './GoatCniphty.svg'
 function NavBar() {
 
 
     return (
         <nav className='navbar'>
+            <img className='logo' alt='goat prophet' src={Goat}></img>
             <div className='nav-div'>
                 <ul className='navbar-list'>
                     <li className='navbar-list-item'>

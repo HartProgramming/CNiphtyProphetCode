@@ -1,18 +1,30 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+
 .navbar{
     background-image: linear-gradient(to right, #3842ff, #1bcedb);
     display: flex;
     margin: auto;
+    justify-content: flex-end;
     height: 90px;
-    font-family: Geneva, Verdana, sans-serif;
-    border-bottom: 2px solid black;
+    align-items: center;
+    font-weight: 300;
+    font-family:  'Poppins';
+    border-bottom: 5px solid black;
 }
 
-.nav-div{
+.logo{
+    height: 95px;
+}
+
+.navbar .logo{
+    margin: auto;
     display: flex;
-    margin: 0;
-    align-items: flex-end;
-    justify-content: flex-end;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 30px;
+    position: relative;
 }
 
 .navbar-list{
@@ -20,6 +32,7 @@
     flex-direction: row;
     display: flex;
     margin: auto;
+    margin-right: 50px;
 }
 
 .navbar-list-item{
@@ -30,9 +43,8 @@
 
 .item{
     text-decoration: none;
-    color: black;
+    color: rgb(255, 255, 255);
     letter-spacing: 1.2px;
-    font-weight: 600;
     font-size: 20px;
 }
 

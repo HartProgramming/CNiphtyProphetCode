@@ -3,6 +3,7 @@ import cnftArray from '../CNFTProjectData';
 import CNFTCard from './CNFTCard';
 import React from 'react';
 import CNFTHeader from './Borrow.svg'
+import ProjectInput from './ProjectInput';
 
 import { useState } from 'react';
 import axios from 'axios';
@@ -42,9 +43,8 @@ function CNFT() {
     return (
         <div>
             <img className='cnft-header' src={CNFTHeader}></img>
-            <div className='cnft-card-surround'>
-                <CNFTCard key={cnftArray[0].id} onLoad={collectCNFT(cnftArray[0].policyID)} image='ipfs.io/ipfs/Qmdnu1U2kTZrdovtC6923uhXJqoL4qQcBxsmmUvafsWXqL' project={cnftArray[0].project} floor={floor + ' ADA'} volume={vol.toLocaleString() + ' ADA'} mktCap={mktCap.toLocaleString() + ' ADA'} />
-                <CNFTCard key={cnftArray[4].id} onLoad={collectCNFT(cnftArray[4].policyID)} image='ipfs.io/ipfs/Qmdnu1U2kTZrdovtC6923uhXJqoL4qQcBxsmmUvafsWXqL' project={cnftArray[4].project} floor={floor + ' ADA'} volume={vol.toLocaleString() + ' ADA'} mktCap={mktCap.toLocaleString() + ' ADA'} />
+            <div className='cnft-data-div'>
+                <ProjectInput></ProjectInput>
             </div>
         </div>
     )

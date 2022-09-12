@@ -1,12 +1,18 @@
-
-.cnft-header{
-    margin: auto;
-    display: flex;
-    width: 500px;
-    justify-content: center;
+.cnft-header {
+  margin: auto;
+  display: flex;
+  width: 500px;
+  justify-content: center;
 }
 
-.cnft-card-surround{
-    display: flex;
-    flex-wrap: wrap;
+.cnft-data-div {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  height: 700px;
+  width: 575px;
+  margin-bottom: 100px;
+  border-radius: 25px;
+  box-shadow: 7px 7px;
+  background-image: linear-gradient(to bottom right, #3842ff, #1bcedb);
 }

@@ -9,10 +9,14 @@ body {
   margin: auto;
 }
 
+.background-img{
+  border-radius: 25px;
+}
+
 .image-div {
   margin: auto;
   display: flex;
-  margin-top: 130px;
+  margin-top: 50px;
   margin-bottom: 130px;
   justify-content: center;
 }

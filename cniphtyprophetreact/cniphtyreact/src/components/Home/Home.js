@@ -1,13 +1,13 @@
-import Background from './CNiphtyProphetTemporaryLogo.svg';
 import './Home.css'
 import React from 'react'
+import Background from './CNiphtyProphetTemporaryLogo.svg'
 
 function Home() {
 
     return (
         <section className='section-home'>
             <div className='image-div'>
-                <img src={Background} alt='Hompage Background' />
+                <img className='background-img' src={Background} alt='Hompage Background' />
             </div>
             <article className='article-cards'>
                 <div className='card-div'>
