@@ -9,16 +9,64 @@ body {
   margin: auto;
 }
 
-.background-img{
+.div-row{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.img{
+    height: 300px;
+    margin-top: 50px;
+}
+
+.card-image-div-left {
+  margin: auto;
+  display: flex;
+  height: 300px;
   border-radius: 25px;
+  width: 300px;
+  margin-right: 40px;
+  margin-bottom: 130px;
+  justify-content: center;
+}
+
+.card-image-div-right {
+  margin: auto;
+  display: flex;
+  height: 300px;
+  border-radius: 25px;
+  width: 300px;
+  margin-left: 40px;
+  margin-bottom: 130px;
+  justify-content: center;
 }
 
 .image-div {
   margin: auto;
   display: flex;
-  margin-top: 50px;
+  margin-top: 60px;
+  height: 500px;
+  border-radius: 25px;
+  width: 500px;
+  animation: background-img-reveal 1s;
   margin-bottom: 130px;
   justify-content: center;
+  animation-fill-mode: forwards;
+}
+
+@keyframes background-img-reveal {
+  0%{
+    background-image: url('./CNiphtyProphetTemporaryLogo.svg');
+    opacity: .02;
+  }
+ 
+  100%{
+    background-image: url('./CNiphtyProphetTemporaryLogo.svg');
+    opacity: 1;
+  }
 }
 
 .article-cards {
@@ -29,15 +77,16 @@ body {
 }
 
 .card-div {
-  background-color: #38b6ff;
-  border: 3px solid rgb(255, 255, 255);
+  background-color: #a0dcff;
+  border: 3px solid rgb(88, 177, 255);
   border-radius: 25px;
+  box-shadow: 8px 8px rgb(77, 168, 247);
   height: 400px;
-  width: 400px;
+  width: 600px;
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 10px;
+  margin: 50px;
 }
 
 .card-list {
@@ -55,7 +104,7 @@ body {
   display: flex;
   margin-left: 0px;
   justify-content: center;
-  border-bottom: 5px solid black;
+  border-bottom: 5px solid rgb(88, 177, 255);
 }
 
 hr {

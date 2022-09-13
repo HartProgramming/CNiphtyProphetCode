@@ -8,6 +8,12 @@ import ProjectInput from './ProjectInput';
 import { useState } from 'react';
 import axios from 'axios';
 
+const projectList = [];
+
+for (let x of cnftArray) {
+    projectList.push(<option key={x.id} value={x.project}>{x.project}</option>)
+}
+
 function CNFT() {
 
     const [img, setImg] = useState(null);
@@ -16,6 +22,10 @@ function CNFT() {
     const [mktCap, setMktCap] = useState('');
 
     const collectCNFT = (policyID) => {
+
+
+
+
         const config = { headers: { Accept: "application/json" } }
 
         const params = {
@@ -44,7 +54,35 @@ function CNFT() {
         <div>
             <img className='cnft-header' src={CNFTHeader}></img>
             <div className='cnft-data-div'>
-                <ProjectInput></ProjectInput>
+                <div className='cnft-data'>
+                    <ul className='cnft-ul'>
+                        <li className='cnft-li'>
+                            <h2>Project: <span>
+                                <select id='project-list'>{projectList}</select>
+                            </span>
+                            </h2>
+                        </li>
+                        <li>
+                            <h2>Floor Price: <span floor={floor}>{floor}</span></h2>
+                        </li>
+                        <li className='cnft-li'>
+                            <h2>Total Volume: <span></span></h2>
+                        </li>
+                        <li className='cnft-li'>
+                            <h2>24H Volume: <span></span></h2>
+                        </li>
+                        <li className='cnft-li'>
+                            <h2>Market Cap: <span></span></h2>
+                        </li>
+                        <li className='cnft-li'>
+                            <h2>Wallet Holders: <span></span></h2>
+                        </li>
+                        <li className='cnft-li'>
+                            <h2># of Assets: <span></span></h2>
+                        </li>
+                    </ul>
+
+                </div>
             </div>
         </div>
     )

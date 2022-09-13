@@ -55,9 +55,9 @@
 
 @keyframes button-hover {
     0% {
-        color: white;
+        color: black;
     }
     100%{
-        color: black;
+        color: white;
     }
 }
