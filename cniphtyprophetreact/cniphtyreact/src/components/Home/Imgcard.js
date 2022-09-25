@@ -8,8 +8,8 @@ function Imgcard(props){
             <div className='card-image-div-left'>
                 <img className='img' alt={props.alt} src={props.image}></img>
             </div>
-            <div className='card-div'>
-                <h2>{props.header}</h2>
+            <div className='left card-div-right'>
+                <h2 className='card-header'>{props.header}</h2>
                 <ul className='card-list'>
                     <li className='list-item-home'>
                         {props.lineOne}

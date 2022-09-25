@@ -1,8 +1,20 @@
-.cnft-header {
-  margin: auto;
-  display: flex;
-  width: 500px;
-  justify-content: center;
+
+
+@keyframes header-image {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+#project-list{
+  padding: 10px;
+  text-align: center;
+  font-family: sans-serif;
+  width: 200px;
+  border-radius: 25px;
 }
 
 
@@ -19,6 +31,14 @@
   background-image: linear-gradient(to bottom right, #3842ff, #1bcedb);
 }
 
+.cnft-header{
+  font-size: 48px;
+  color: white;
+  display: flex;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
 .cnft-data{
     margin: auto;
     justify-content: center;
@@ -30,6 +50,9 @@
     list-style: none;
     border: 3px solid black;
     width: 375px;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
 }
 
 .cnft-li{

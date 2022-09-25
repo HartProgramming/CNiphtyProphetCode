@@ -5,110 +5,86 @@ body {
 .section-home {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   margin: auto;
+  align-items: center;
+  margin-top: 200px;
+  font-family: 'Poppins';
+}
+
+.home-header{
+  font-size: 88px;
+  margin: auto;
+  display: flex;
+  width: 65%;
+  text-align: center;
+  color: yellow;
+  justify-content: center;
+}
+
+.home-sub-header{
+  font-size: 48px;
+  color: white;
+  width: 75%;
+  padding-bottom: 100px;
+  display: flex;
+  padding-top: 80px;
+  margin: auto;
+  letter-spacing: 1.6px;
+  text-align: center;
+}
+
+#slickdick{
+  height: 350px;
 }
 
 .div-row{
-    display: flex;
-    margin: auto;
-    justify-content: center;
-    display: flex;
-    align-items: center;
+  display: flex;
+  margin: auto;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-div-left{
+  background-color: white;
+  color: blue;
+  border-radius: 25px;
+  border: 8px solid blue;
+  display: flex;
+  width: 45%;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  padding: 25px;
+  margin-top: 80px;
+  font-size: 24px;
+  box-shadow: 6.5px 8px 5px yellow;
+}
+
+.card-div-right{
+  background-color: white;
+  color: blue;
+  border-radius: 25px;
+  border: 8px solid blue;
+  display: flex;
+  width: 45%;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  padding: 25px;
+  margin-top: 80px;
+  font-size: 24px;
+  box-shadow: 6.5px 8px 5px yellow;
+}
+
+
+.card-header{
+  font-size: 38px;
+  text-align: center;
 }
 
 .img{
-    height: 300px;
-    margin-top: 50px;
-}
-
-.card-image-div-left {
-  margin: auto;
-  display: flex;
-  height: 300px;
-  border-radius: 25px;
-  width: 300px;
-  margin-right: 40px;
-  margin-bottom: 130px;
-  justify-content: center;
-}
-
-.card-image-div-right {
-  margin: auto;
-  display: flex;
-  height: 300px;
-  border-radius: 25px;
-  width: 300px;
-  margin-left: 40px;
-  margin-bottom: 130px;
-  justify-content: center;
-}
-
-.image-div {
-  margin: auto;
-  display: flex;
-  margin-top: 60px;
-  height: 500px;
-  border-radius: 25px;
-  width: 500px;
-  animation: background-img-reveal 1s;
-  margin-bottom: 130px;
-  justify-content: center;
-  animation-fill-mode: forwards;
-}
-
-@keyframes background-img-reveal {
-  0%{
-    background-image: url('./CNiphtyProphetTemporaryLogo.svg');
-    opacity: .02;
-  }
- 
-  100%{
-    background-image: url('./CNiphtyProphetTemporaryLogo.svg');
-    opacity: 1;
-  }
-}
-
-.article-cards {
-  display: flex;
-  margin: auto;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.card-div {
-  background-color: #a0dcff;
-  border: 3px solid rgb(88, 177, 255);
-  border-radius: 25px;
-  box-shadow: 8px 8px rgb(77, 168, 247);
-  height: 400px;
-  width: 600px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin: 50px;
-}
-
-.card-list {
-  list-style-type: none;
-  margin-left: -40px;  
-  width: 95%;
-  font-family: sans-serif;
-  text-align: center;
-  font-size: 28px;
-}
-
-.list-item-home{
-  margin: 15px;
-  width: 100%;
-  display: flex;
-  margin-left: 0px;
-  justify-content: center;
-  border-bottom: 5px solid rgb(88, 177, 255);
-}
-
-hr {
-  margin: auto;
-  display: flex;
-  justify-content: center;
+  height: 350px;
 }

@@ -5,8 +5,8 @@ function Cardimg(props){
 
     return(
         <div className='div-row'>
-            <div className='card-div'>
-                <h2>{props.header}</h2>
+            <div className='right card-div-left'>
+                <h2 className='card-header'>{props.header}</h2>
                 <ul className='card-list'>
                     <li className='list-item-home'>
                         {props.lineOne}

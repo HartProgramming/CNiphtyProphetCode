@@ -1,9 +1,6 @@
 import './CNFT.css';
 import cnftArray from '../CNFTProjectData';
-import CNFTCard from './CNFTCard';
 import React from 'react';
-import CNFTHeader from './Borrow.svg'
-import ProjectInput from './ProjectInput';
 
 import { useState } from 'react';
 import axios from 'axios';
@@ -22,9 +19,6 @@ function CNFT() {
     const [mktCap, setMktCap] = useState('');
 
     const collectCNFT = (policyID) => {
-
-
-
 
         const config = { headers: { Accept: "application/json" } }
 
@@ -52,9 +46,9 @@ function CNFT() {
 
     return (
         <div>
-            <img className='cnft-header' src={CNFTHeader}></img>
             <div className='cnft-data-div'>
                 <div className='cnft-data'>
+                    <h2 className='cnft-header'>CNFT Data</h2>
                     <ul className='cnft-ul'>
                         <li className='cnft-li'>
                             <h2>Project: <span>
@@ -63,7 +57,7 @@ function CNFT() {
                             </h2>
                         </li>
                         <li>
-                            <h2>Floor Price: <span floor={floor}>{floor}</span></h2>
+                            <h2>Floor Price: <span onChange={collectCNFT} floor={floor}>{floor}</span></h2>
                         </li>
                         <li className='cnft-li'>
                             <h2>Total Volume: <span></span></h2>

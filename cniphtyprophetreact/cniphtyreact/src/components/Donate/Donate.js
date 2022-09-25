@@ -1,8 +1,14 @@
-import React from "react"
+import React from "react";
+import './Donate.css';
+import DonateHeader from './DonateHeader.svg';
 
 function Donate(){
+
+
     return(
-        <h1>Donate</h1>
+        <div>
+            <img className="donate-header" alt='Donate header image' src={DonateHeader}/>
+        </div>
     )
 }
 

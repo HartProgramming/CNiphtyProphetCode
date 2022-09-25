@@ -1,35 +1,26 @@
 import './NavBar.css';
 import React from 'react'
 import { BrowserRouter, Route, Link } from 'react-router-dom';
-import Goat from './GoatCniphty.svg'
+import CNiphty from './CNiphtyProphetLogoCircle.svg';
 function NavBar() {
 
 
     return (
         <nav className='navbar'>
-            <img className='logo' alt='goat prophet' src={Goat}></img>
+            <img className='logo' alt='goat prophet' src={CNiphty}></img>
             <div className='nav-div'>
                 <ul className='navbar-list'>
                     <li className='navbar-list-item'>
-                        <Link className='item' to='/'>Home</Link>
+                        <button className='nav-button'><Link className='item' to='/'>Home</Link></button>
                     </li>
                     <li className='navbar-list-item'>
-                        <Link className='item' to='/borrow'>Borrow</Link>
+                        <button className='nav-button'><Link className='item' to='/merchandise'>Merch</Link></button>
                     </li>
                     <li className='navbar-list-item'>
-                        <Link className='item' to='/lend'>Lend</Link>
+                        <button className='nav-button'><Link className='item' to='/donate'>Donate</Link></button>
                     </li>
-                    <li className='navbar-list-item'>
-                        <Link className='item' to='/cnft'>CNFT</Link>
-                    </li>
-                    <li className='navbar-list-item'>
-                        <Link className='item' to='/cardano'>Ecosystem</Link>
-                    </li>
-                    <li className='navbar-list-item'>
-                        <Link className='item' to='/merchandise'>Merchandise</Link>
-                    </li>
-                    <li className='navbar-list-item'>
-                        <Link className='item' to='/donate'>Donate</Link>
+                    <li className='launch-app-list-item navbar-list-item'>
+                        <button className='nav-button launch-app-button'><Link className='item launch-app-item' to='/borrow'>Launch App</Link></button>
                     </li>
                 </ul>
             </div>

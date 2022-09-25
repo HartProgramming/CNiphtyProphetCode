@@ -1,0 +1,30 @@
+.input-row{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: 15px;
+  width: 85%;
+}
+
+.borrow-image {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+
+.input-label {
+  color: black;
+  font-weight: 700;
+  font-size: 16px;
+  font-family: 'Poppins';
+}
+
+.input{
+  color: yellow;
+  font-family: 'Poppins';
+  font-weight: 800;
+  font-size: 16px;
+  text-align: right;
+  background-color: black;
+  border-radius: 25px;
+}
