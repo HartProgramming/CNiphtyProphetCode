@@ -7,12 +7,16 @@
     justify-content: center;
     border: 2px solid white;  
     margin-top: 100px;  
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
 }
 
 .mainbar-div{
     width: 100%;
     display: flex;
     margin: auto;
+     border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
     justify-content: center;
 }
 
@@ -48,6 +52,15 @@
 .mainbar-item:hover{
     color: black;
 }
+
+#mainbar-button-left{
+    border-top-left-radius: 25px;
+}
+
+#mainbar-button-right{
+    border-top-right-radius: 25px;
+}
+
 
 .main-article{
     background-color: white;

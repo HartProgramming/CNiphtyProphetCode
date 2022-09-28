@@ -9,19 +9,15 @@
   width: 80%;
   border: 2px solid white;
   margin-bottom: 50px;
-}
-
-.lend-div-row-project{
-  display: flex;
-  justify-content: center;
+    border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
 }
 
 .lend-area{
   display: flex;
   margin: auto;
-  width: 70%;
+  width: 80%;
   flex-wrap: wrap;
-  border: 2px solid black;
   justify-content: center;
 }
 
@@ -29,13 +25,6 @@
   display: flex;
   margin: auto;
   justify-content: center;
-}
-
-.lend-column{
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  border: 2px solid black;
 }
 
 .project-list{

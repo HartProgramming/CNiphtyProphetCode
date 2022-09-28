@@ -1,7 +1,7 @@
 import React from 'react';
 import './Merchandise.css';
 import MerchHeader from './MerchHeader.svg';
-
+import Input from '../Input/Input';
 
 function Merchandise() {
 

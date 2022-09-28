@@ -20,7 +20,7 @@ function NavBar() {
                         <button className='nav-button'><Link className='item' to='/donate'>Donate</Link></button>
                     </li>
                     <li className='launch-app-list-item navbar-list-item'>
-                        <button className='nav-button launch-app-button'><Link className='item launch-app-item' to='/borrow'>Launch App</Link></button>
+                        <button className='nav-button launch-app-button'><Link className='item launch-app-item' to='/app'>Launch App</Link></button>
                     </li>
                 </ul>
             </div>

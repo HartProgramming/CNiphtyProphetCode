@@ -5,37 +5,22 @@
   margin: auto;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
   background-color: white;
   width: 80%;
   border: 2px solid white;
   margin-bottom: 50px;
-}
-
-.borrow-div-row-project{
-  display: flex;
-  justify-content: center;
+    border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
 }
 
 .borrow-area{
   display: flex;
   margin: auto;
-  width: 70%;
+  width: 55%;
   flex-wrap: wrap;
   border: 2px solid black;
   justify-content: center;
-}
-
-.borrow-image {
-  display: flex;
-  margin: auto;
-  justify-content: center;
-}
-
-.borrow-column{
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  border: 2px solid black;
 }
 
 .project-list{
@@ -45,7 +30,6 @@
   font-weight: 600;
   padding: 5px;
   font-size: 16px;
-  border: 3px solid black;
   text-align: right;
   border-radius: 25px;
 }

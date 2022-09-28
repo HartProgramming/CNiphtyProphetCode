@@ -1,44 +1,19 @@
 .cardano-ecosystem {
-  display: flex;
+   display: flex;
   margin: auto;
-  height: 1200px;
-  margin-top: 155px;
+  justify-content: center;
   flex-direction: column;
-  justify-content: center;
-}
-
-.native-back {
-  display: flex;
-  margin: auto;
-  width: 670px;
-  justify-content: center;
-  margin-bottom: 100px;
-  animation: native-header 2s;
-  border-radius: 30px;
-  animation-fill-mode: forwards;
-}
-
-@keyframes native-header {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.cardano-header {
-  height: 500px;
-  margin-bottom: -120px;
+  background-color: black;
+  width: 80%;
+  border: 2px solid white;
+  margin-bottom: 50px;
 }
 
 .cardano-data-div {
-  border-radius: 10px;
-  background-image: linear-gradient(to right, #1bcedb, #8ed2ff, #8ed2ff, #1bcedb);
-  color: black;
-  border: 3px solid rgb(0, 0, 0);
-  height: 800px;
-  width: 600px;
+  color: white;
+  height: 300px;
+  width: 95%;
+  flex-direction: column;
   margin: auto;
   justify-content: center;
   display: flex;
@@ -46,6 +21,7 @@
 
 .cardano-table {
   width: 100%;
+
 }
 
 .coin-symbol {
@@ -55,7 +31,7 @@
 tr,
 td,
 th {
-  border: 3px solid rgb(21, 21, 21);
+  border: 3px solid white;
 }
 
 th {

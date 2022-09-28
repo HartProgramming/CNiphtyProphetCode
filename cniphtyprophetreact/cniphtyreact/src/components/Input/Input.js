@@ -5,11 +5,10 @@ function Input(props){
 
     return(
         <div className='input-row'>
-            <label className='input-label' for={props.for}>{props.name}</label>
-            <input className='input' id={props.id} value={props.value} type='number'></input>
+            <label className='input-label' for={props.id}>{props.name}</label>
+            <input step={props.step} onChange={props.onChange} className='input' id={props.id} value={props.value} type={props.type}></input>
         </div>
     )
-
 }
 
 export default Input;
