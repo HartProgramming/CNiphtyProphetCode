@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Crypto.css';
 import axios from 'axios';
 import Input from '../Input/Input';
@@ -79,8 +79,9 @@ function Crypto() {
         <div className='cardano-ecosystem'>
             <div className='cardano-data-div'>
                 <div className='input-row'>
-                    <label className='input-label' for='project'>Project</label>
+                    <label className='crypto-label input-label' for='project'>Coin</label>
                     <select onChange={ChangeProjectCrypto} id='projects' className='input'>{tokenList}</select>
+
                 </div>
                 <table className='cardano-table'>
                     <tr className='cardano-table-row'>

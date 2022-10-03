@@ -1,28 +1,26 @@
-
-
-.cnft-section{
+.cnft-section {
   display: flex;
   margin: auto;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background-color: white;
-  width: 80%;
-  border: 2px solid white;
+  background-color: black;
+  width: 78.6%;
+  border: 5px solid rgb(48, 117, 255);
   margin-bottom: 50px;
   border-bottom-right-radius: 25px;
   border-bottom-left-radius: 25px;
 }
 
-.borrow-div-row-project{
+.borrow-div-row-project {
   display: flex;
   justify-content: center;
 }
 
-.cnft-area{
+.cnft-area {
   display: flex;
   margin: auto;
-  width: 70%;
+  width: 80%;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -33,17 +31,10 @@
   justify-content: center;
 }
 
-.borrow-column{
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  border: 2px solid black;
-}
-
-.project-list{
+.project-list {
   color: black;
   background-color: yellow;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 600;
   padding: 5px;
   font-size: 16px;

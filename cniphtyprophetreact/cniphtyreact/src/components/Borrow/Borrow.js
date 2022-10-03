@@ -9,6 +9,7 @@ import cnftArray from '../CNFTProjectData';
 
 function Borrow() {
 
+
     const projectListBorrow = [];
 
     for (let x of cnftArray) {
@@ -17,20 +18,6 @@ function Borrow() {
 
     const [ADApriceBorrow, setADAPriceBorrow] = useState('')
 
-    const LoadAdaPrice = () => {
-        const config = { headers: { Accept: "application/json" } };
-
-        axios.get(`https://api.coingecko.com/api/v3/coins/cardano`, config)
-            .then(res => {
-                const price = res.data.market_data.current_price.usd
-                setADAPriceBorrow(price)
-                console.log(res.data.market_data.current_price.usd)
-            }).catch(err => {
-                console.log(err);
-            })
-    }
-
-    LoadAdaPrice()
 
     const ChangeProjectBorrow = (e) => {
         const selectedPolicy = e.target.value;
@@ -42,16 +29,31 @@ function Borrow() {
         }
         axios.get(`https://api.opencnft.io/1/policy/${params.policy}`, config)
             .then(res => {
-                const floor = res.data.floor_price /= Math.pow(10, 6);
+                const floor = (res.data.floor_price /= Math.pow(10, 6)) + ' ADA';
                 const editImg = res.data.thumbnail.slice(12)
                 const pic = `ipfs.io/ipfs/${editImg}`;
-                setImgBorrow(pic)
+                setImgBorrow(pic);
                 setFloorBorrow(floor);
                 console.log(res.data)
             }).catch(err => {
                 console.log(err);
             })
+
+
     }
+
+    useEffect(() => {
+        const config = { headers: { Accept: "application/json" } };
+
+        axios.get(`https://api.coingecko.com/api/v3/coins/cardano`, config)
+            .then(res => {
+                const price = res.data.market_data.current_price.usd
+                setADAPriceBorrow(price.toFixed(3))
+                console.log(res.data.market_data.current_price.usd)
+            }).catch(err => {
+                console.log(err);
+            })
+    }, [])
 
     const [imgBorrow, setImgBorrow] = useState(null);
     const [floorBorrow, setFloorBorrow] = useState();
@@ -68,94 +70,103 @@ function Borrow() {
 
     /* Loan Length function */
     const SetLoanLengthBorrow = (e) => {
-        console.log(e)
+        setLoanLengthType('number')
+
         const days = e.target.value;
+        console.log(days)
         setLengthBorrow(days);
     }
 
-    /* Set interest value and values with interest */
-    const SetInterestBorrow = e => {
-        setInterestBorrow(e.target.value)
-        setTimeout(() => {
-            setLoanInterestBorrow((((intValue.value /= 100) + 1) * loanValue.value).toFixed(2).toLocaleString());
-        }, 50);
-        setTimeout(() => {
-            setLoanInterestBorrowDollar((loanValueADAID.value * adaPriceSOLID.value).toFixed(2).toLocaleString());
-        }, 100);
-        setTimeout(() => {
-            console.log(repayID.value)
-            console.log(loanValueADAID.value)
-            setRepaymentBorrow((buyBackID.value * loanValueADAID.value).toLocaleString());
-        }, 150);
-        setTimeout(() => {
-            setProfitLoss((loanValueDollarsID.value - repayID.value).toFixed(2).toLocaleString())
-        }, 200);
-        setTimeout(() => {
-            setProfitLossADA((profitLossDollars.value /= buyBackID.value).toFixed(2).toLocaleString())
-        }, 250);
-
-    }
-
-    const clearInput = e => {
-        e.target.value = '';
-    }
-
-
-    const SetLoanValueADA = e => {
-        setLoanStateBorrow(e.target.value);
-        if (loanValue.value !== 0 || loanValue.value !== null) {
-            setTimeout(() => {
-                setLoanInterestBorrow((((intValue.value /= 100) + 1) * loanValue.value).toFixed(2).toLocaleString());
-            }, 50);
-            setTimeout(() => {
-                setLoanInterestBorrowDollar((loanValueADAID.value * adaPriceSOLID.value).toFixed(2).toLocaleString());
-            }, 100);
-            setTimeout(() => {
-                setRepaymentBorrow((buyBackID.value * loanValueADAID.value).toFixed(2).toLocaleString());
-            }, 150);
-            setTimeout(() => {
-                setProfitLoss((loanValueDollarsID.value - repayID.value).toFixed(2).toLocaleString());
-            }, 200);
-            setTimeout(() => {
-                setProfitLossADA((profitLossDollars.value /= buyBackID.value).toFixed(2).toLocaleString())
-            }, 210);
-        }
-    }
-
-    const SetRepayProfit = e => {
-        setADAEol(e.target.value);
-        if (buyBackID.value !== null || buyBackID.value !== 0) {
-            setRepaymentBorrow((buyBackID.value * loanValueADAID.value).toFixed(2).toLocaleString());
-            setTimeout(() => {
-                setProfitLoss((loanValueDollarsID.value - repayID.value).toFixed(2).toLocaleString());
-            }, 200);
-            setTimeout(() => {
-                setProfitLossADA((profitLossDollars.value /= buyBackID.value).toFixed(2).toLocaleString())
-            }, 210);
-
-        }
-    }
-
-    const SetADAPriceSOL = e => {
+    /* ADA price at start of loan function */
+    const SetADAPriceSOL = (e) => {
         setADAPriceSOL(e.target.value);
-        setTimeout(() => {
-            setLoanInterestBorrow((((intValue.value /= 100) + 1) * loanValue.value).toFixed(2).toLocaleString());
-        }, 100);
-        setTimeout(() => {
-            setLoanInterestBorrowDollar((loanValueADAID.value * adaPriceSOLID.value).toFixed(2).toLocaleString());
-        }, 110);
-        setTimeout(() => {
-            setRepaymentBorrow((buyBackID.value * loanValueADAID.value).toFixed(2).toLocaleString());
-        }, 150);
-        setTimeout(() => {
-            setProfitLoss((loanValueDollarsID.value - repayID.value).toFixed(2).toLocaleString());
-        }, 200);
-        setTimeout(() => {
-            setProfitLossADA((profitLossDollars.value /= buyBackID.value).toFixed(2).toLocaleString())
-        }, 210);
-
     }
 
+    /* Loan value in ADA requested */
+    const SetLoanValueADA = (e) => {
+        setLoanStateBorrow(e.target.value);
+        setLoanValueType('number')
+    }
+
+    /* End of loan ADA price or buy back price */
+    const SetBuyBack = (e) => {
+        setADAEol(e.target.value);
+    }
+
+    /* Interest rate set function for loan */
+    const SetInterestBorrow = (e) => {
+        setInterestBorrow(e.target.value);
+        setInterestType('number')
+    }
+
+    const ChangeFocus = (e) => {
+        console.log(e)
+        e.target.value = ''
+        if (e.target.id === 'ada-price-sol') {
+            setAdaPriceTypeSOL('number')
+
+        } else if(e.target.id === 'ada-price-eol'){
+            setBuyBackTypeEOL('number')
+        }
+    }
+
+    /* Mounts states of every input on page load */
+    useEffect(() => {
+        setADAEol('Set Buy Back ADA Price');
+        setRepaymentBorrow();
+        setADAPriceSOL('Set ADA Price at Loan');
+        setLengthBorrow('Set Loan Length');
+        setInterestBorrow('Set Interest Rate');
+        setLoanStateBorrow('Set Loan Value');
+        setLoanInterestBorrow();
+        setFloorBorrow('Change Project')
+        setProfitLoss();
+        setProfitLossADA();
+        setLoanValueDollars();
+        setRepaymentInterestBorrow();
+        setAdaInterestCharged();
+        setADABreakEvenPrice();
+        setRepayInterestPlusLoan();
+        console.log(ADAPriceSOL)
+        console.log(adaBreakEvenPrice)
+
+    }, [])
+
+    /* UseEffect manages updating the various inputs without direct input
+    that require calculation */
+    useEffect(() => {
+        setRepaymentBorrow((adaEOL * loanValueBorrow).toFixed(2).toLocaleString());
+        setProfitLoss((parseFloat(loanValueDollars) - parseFloat(repayInterestPlusLoan)).toFixed(2))
+        setLoanInterestBorrow((loanValueBorrow * (1 + (interestBorrow / 100))).toFixed(2).toLocaleString());
+        if (loanWInterestBorrow !== 0) {
+            setProfitLossADA((profitLoss / adaEOL).toFixed(2).toLocaleString());
+            setAdaInterestCharged((loanWInterestBorrow - loanValueBorrow).toFixed(2).toLocaleString());
+        }
+        setRepaymentInterestBorrow((parseFloat(adaEOL * adaInterestCharged)).toFixed(2).toLocaleString());
+        setLoanValueDollars((ADAPriceSOL * loanValueBorrow).toFixed(2).toLocaleString());
+        if (ADAPriceSOL === undefined && isNaN(adaBreakEvenPrice)) {
+            setADABreakEvenPrice('')
+        } else if (ADAPriceSOL > 0) {
+            setADABreakEvenPrice(ADAPriceSOL * .95);
+            console.log('hi')
+        }
+        console.log(ADAPriceSOL)
+        console.log(adaBreakEvenPrice)
+        setRepayInterestPlusLoan(parseFloat(repaymentInterestBorrow) + parseFloat(repaymentBorrow))
+
+        console.log(repayInterestPlusLoan);
+
+    })
+
+    /* Set Type State */
+    const [floorType, setFloorType] = useState('text');
+    const [loanLengthType, setLoanLengthType] = useState('text');
+    const [adaPriceTypeSOL, setAdaPriceTypeSOL] = useState('text');
+    const [loanValueType, setLoanValueType] = useState('text');
+    const [interestType, setInterestType] = useState('text');
+    const [buyBackTypeEOL, setBuyBackTypeEOL] = useState('text');
+
+    /* Set Value State */
     const [ADAPriceSOL, setADAPriceSOL] = useState(null);
     const [adaEOL, setADAEol] = useState(null);
     const [repaymentBorrow, setRepaymentBorrow] = useState(null);
@@ -164,8 +175,12 @@ function Borrow() {
     const [loanValueBorrow, setLoanStateBorrow] = useState(null);
     const [loanWInterestBorrow, setLoanInterestBorrow] = useState(null);
     const [profitLoss, setProfitLoss] = useState(null);
-    const [loanWInterestBorrowDollar, setLoanInterestBorrowDollar] = useState(null);
-    const [profitLossADA, setProfitLossADA] = useState(null)
+    const [profitLossADA, setProfitLossADA] = useState(null);
+    const [loanValueDollars, setLoanValueDollars] = useState(null);
+    const [repaymentInterestBorrow, setRepaymentInterestBorrow] = useState(null);
+    const [adaInterestCharged, setAdaInterestCharged] = useState(null);
+    const [adaBreakEvenPrice, setADABreakEvenPrice] = useState(null);
+    const [repayInterestPlusLoan, setRepayInterestPlusLoan] = useState(null);
 
     return (
         <section className='borrow-section'>
@@ -174,18 +189,22 @@ function Borrow() {
                     <label className='input-label' for='project'>Project</label>
                     <select onChange={ChangeProjectBorrow} id='projects' className='input'>{projectListBorrow}</select>
                 </div>
-                <Input id='floor-price' name='Floor Price' type='number' value={floorBorrow}></Input>
-                <Input onChange={SetLoanLengthBorrow} id='loan-length' type='number' name='Length(Days)' value={lengthBorrow}></Input>
-                <Input id='ada-price' name='Curr. ADA Price($)' type='number' value={ADApriceBorrow}></Input>
-                <Input onChange={SetADAPriceSOL} id='ada-price-sol' name='ADA Price($) @ Start of Loan/Sale of ADA' type='number' value={ADAPriceSOL}></Input>
-                <Input onChange={SetLoanValueADA} id='loan-value' type='number' name='Loan' value={loanValueBorrow}></Input>
-                <Input onClick={clearInput} onChange={SetInterestBorrow} id='loan-interest' type='number' name='Interest %' value={interestBorrow}></Input>
-                <Input id='loan-value-interest' type='number' name='Loan w/Interest ADA' value={loanWInterestBorrow}></Input>
-                <Input id='loan-value-interest-dollars' type='number' name='Loan w/Interest ($)' value={loanWInterestBorrowDollar}></Input>
-                <Input onChange={SetRepayProfit} step='.01' id='buy-back' name='ADA Price @ End of Loan' type='number' value={adaEOL}></Input>
-                <Input id='repay' name='Repayment($)' type='number' value={repaymentBorrow}></Input>
-                <Input id='profit-loss' name='Profit/Loss($)' type='number' value={profitLoss}></Input>
-                <Input id='profit-loss-ada' name='Profit/Loss ADA' type='number' value={profitLossADA}></Input>
+                <Input title='Floor Price' name='borrow-floor-price' readonly id='floor-price' type={floorType} value={floorBorrow}></Input>
+                <Input onFocus={ChangeFocus} title='Length(Days)' name='borrow-length-days' onChange={SetLoanLengthBorrow} id='loan-length' type={loanLengthType} value={lengthBorrow}></Input>
+                <Input title='Curr. ADA Price($)' name='borrow-current-ada-price' readonly id='ada-price' type='number' value={ADApriceBorrow}></Input>
+                <Input onFocus={ChangeFocus} step='.01' title='ADA Price($) @ Start of Loan/Sale of ADA' name='ada-price-sol' onChange={SetADAPriceSOL} id='ada-price-sol' type={adaPriceTypeSOL} value={ADAPriceSOL}></Input>
+                <Input onFocus={ChangeFocus} step='1' title='Loan Value ADA' name='borrow-loan-value-ada' onChange={SetLoanValueADA} id='loan-value' type={loanValueType} value={loanValueBorrow}></Input>
+                <Input title='Loan Value ($)' name='borrow-loan-value-dollar' readonly id='loan-value' type='number' value={loanValueDollars}></Input>
+                <Input onFocus={ChangeFocus} step='.5' title='Interest %' name='borrow-interest' onChange={SetInterestBorrow} id='loan-interest' type={interestType} value={interestBorrow}></Input>
+                <Input title='Loan w/Interest ADA' name='borrow-loan-interest-with-ada' readonly id='loan-value-interest' type='number' value={loanWInterestBorrow}></Input>
+                <Input title='Interest Charged ADA' name='borrow-loan-interest-charged-ada' readonly id='interest-charged-ada' type='number' value={adaInterestCharged}></Input>
+                <Input title='Break Even ADA Price ($)' name='break-even-ada-price' readonly step='.01' id='break-even-price' type=' number' value={adaBreakEvenPrice}></Input>
+                <Input onFocus={ChangeFocus} title='Buy back ADA Price ($)' name='buy-back-ada-price' onChange={SetBuyBack} step='.01' id='buy-back' type={buyBackTypeEOL} value={adaEOL}></Input>
+                <Input title='Repayment($) Exclude Interest' name='repay-exclude-interest-dollar' readonly id='repay' type='number' value={repaymentBorrow}></Input>
+                <Input title='Interest Repaid ($)' name='interest-repay-dollar' readonly id='repay-interest' type='number' value={repaymentInterestBorrow}></Input>
+                <Input title='Interest + Loan ($)' name='interest-plus-loan-dollar' readonly id='repay-interest-plus-loan' type='number' value={repayInterestPlusLoan}></Input>
+                <Input title='Profit/Loss($)' name='profit-loss-dollar' readonly id='profit-loss' type='number' value={profitLoss}></Input>
+                <Input title='Profit/Loss ADA' name='profit-loss-ada' readonly id='profit-loss-ada' type='number' value={profitLossADA}></Input>
             </div>
         </section >
     )

@@ -6,9 +6,9 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background-color: white;
-  width: 80%;
-  border: 2px solid white;
+  background: linear-gradient(145deg, rgb(21, 21, 186), rgb(2, 2, 102));
+  width: 78.5%;
+  box-shadow: 9px 9px 11px yellow, -9px 0 11px rgb(21, 21, 186);
   margin-bottom: 50px;
     border-bottom-right-radius: 25px;
   border-bottom-left-radius: 25px;
@@ -17,9 +17,8 @@
 .borrow-area{
   display: flex;
   margin: auto;
-  width: 55%;
+  width: 75%;
   flex-wrap: wrap;
-  border: 2px solid black;
   justify-content: center;
 }
 

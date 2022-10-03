@@ -1,6 +1,6 @@
 import './CNFT.css';
 import cnftArray from '../CNFTProjectData';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Input from '../Input/Input';
 import '../Input/Input.css';
 
@@ -34,7 +34,7 @@ function CNFT() {
         axios.get(`https://api.opencnft.io/1/policy/${params.policy}`, config)
             .then(res => {
                 const volumeStr = `${(res.data.total_volume /= Math.pow(10, 6)).toLocaleString()} ADA`;
-                const floorNum = res.data.floor_price /= Math.pow(10,6)
+                const floorNum = res.data.floor_price /= Math.pow(10, 6)
                 const floorStr = `${floorNum} ADA`;
                 const assets = res.data.asset_minted;
                 const cap = `${(assets * floorNum).toLocaleString()} ADA`;
@@ -55,17 +55,20 @@ function CNFT() {
             })
     };
 
+
     return (
         <section className='cnft-section'>
-            <div className='input-row'>
-                <label className='input-label' for='projects'>Project</label>
-                <select onChange={collectCNFT} id='projects' className='input'>{projectListCNFT}</select>
-            </div>
-            <Input id='cnft-floor-price' for='cnft-floor-price' name='Floor Price' value={floorCNFT} />
-            <Input id='cnft-total-volume' for='cnft-total-volume' value={volCNFT} name='Total Volume' />
-            <Input id='cnft-mktcap' for='cnft-mktcap' name='Mkt. Cap.' type='text' value={mktCapCNFT} />
-            <Input id='cnft-wallet-holders' for='cnft-wallet-holders' name='Wallet Holders' value={assetHolders} />
-            <Input id='total-assets' for='total-assets' name='# of Assets' value={assetsMinted} />
+            <article className='cnft-area'>
+                <div className='input-row'>
+                    <label className='input-label' for='projects'>Project</label>
+                    <select onChange={collectCNFT} id='projects' className='input'>{projectListCNFT}</select>
+                </div>
+                <Input readonly title='Floor Price' placeholder='ADA Floor Price' id='cnft-floor-price' for='cnft-floor-price' name='cnft-floor-price' value={floorCNFT} />
+                <Input readonly title='Total Volume' placeholder='ADA Total Volume' id='cnft-total-volume' for='cnft-total-volume' value={volCNFT} name='cnft-total-volume' />
+                <Input readonly title='Mkt. Cap.' placeholder='ADA Market Cap' id='cnft-mktcap' for='cnft-mktcap' name='cnft-mktcap' type='text' value={mktCapCNFT} />
+                <Input readonly title='Wallet Holders' placeholder='# of Holders' id='cnft-wallet-holders' for='cnft-wallet-holders' name='cnft-wallet-holders' value={assetHolders} />
+                <Input readonly title='# of Assets' placeholder='Assets Minted' id='total-assets' for='total-assets' name='total-assets' value={assetsMinted} />
+            </article>
         </section>
     )
 

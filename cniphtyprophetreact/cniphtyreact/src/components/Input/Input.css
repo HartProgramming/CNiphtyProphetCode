@@ -1,10 +1,18 @@
 .input-row{
   display: flex;
   justify-content: space-between;
-  flex-direction: row;
+  align-items: center;
+  margin: auto;
   margin: 15px;
-  width: 85%;
+  width: 100%;
+  background: linear-gradient(145deg, rgb(70, 70, 251), rgb(63, 63, 255));
+  border-radius: 25px;
+  padding-left: 20px;
+  padding: 8px;
+  padding-right: 20px;
+  box-shadow: 3px 3px 8px rgb(8, 0, 255), -3px -3px 8px rgb(39, 39, 255);
 }
+
 
 .borrow-image {
   display: flex;
@@ -13,19 +21,20 @@
 }
 
 .input-label {
-  color: black;
+  color: yellow;
   font-weight: 700;
   font-size: 16px;
-  width: 200px;
+  width: 100%;
   font-family: 'Poppins';
 }
 
 .input{
-  color: yellow;
+  color: black;
   font-family: 'Poppins';
   font-weight: 800;
   font-size: 16px;
   text-align: right;
-  background-color: black;
+  box-shadow: 1px 1px 5px black, -1px -1px 5px black;
+  background-color: yellow;
   border-radius: 25px;
 }

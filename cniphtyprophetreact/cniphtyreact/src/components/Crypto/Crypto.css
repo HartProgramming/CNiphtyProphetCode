@@ -1,27 +1,27 @@
 .cardano-ecosystem {
-   display: flex;
+  display: flex;
   margin: auto;
   justify-content: center;
   flex-direction: column;
-  background-color: black;
-  width: 80%;
-  border: 2px solid white;
+  background-color: rgb(7, 7, 97);
+  width: 76.5%;
+  border: 5px solid rgb(48, 117, 255);
   margin-bottom: 50px;
 }
 
 .cardano-data-div {
   color: white;
   height: 300px;
-  width: 95%;
+  width: 88%;
   flex-direction: column;
   margin: auto;
   justify-content: center;
   display: flex;
+  align-items: center;
 }
 
 .cardano-table {
   width: 100%;
-
 }
 
 .coin-symbol {
@@ -39,11 +39,48 @@ th {
   text-align: center;
 }
 
-td{
+td {
   font-weight: 500;
   text-align: center;
 }
 
 .cardano-table-row {
   border: 2px solid red;
+}
+
+.coin-symbol {
+  margin-top: 9px;
+  border-radius: 50%;
+}
+
+.projects{
+  background-color: yellow;
+}
+
+
+.input-label {
+  color: yellow;
+  font-weight: 700;
+  font-size: 16px;
+  width: 100%;
+  font-family: 'Poppins';
+}
+
+.input{
+  color: black;
+  font-family: 'Poppins';
+  font-weight: 800;
+  font-size: 16px;
+  text-align: right;
+  background-color: yellow;
+  border-radius: 25px;
+}
+
+button {
+  width: 150px;
+  height: 50px;
+}
+
+.crypto-label {
+  color: yellow;
 }

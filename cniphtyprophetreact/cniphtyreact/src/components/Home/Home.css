@@ -35,16 +35,17 @@ body {
 
 #slickdick{
   height: 350px;
+  border-radius: 25%;
 }
 
 .div-row{
   display: flex;
   margin: auto;
   width: 100%;
-  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  border: 3px solid black;
 }
 
 .card-div-left{
@@ -87,4 +88,5 @@ body {
 
 .img{
   height: 350px;
+  border: 3px solid black;
 }

@@ -10,7 +10,8 @@ function Lend() {
 
     const [ADAPriceLend, setADAPriceLend] = useState();
 
-    const LoadAdaPriceLend = () => {
+
+    useEffect(() => {
         const config = { headers: { Accept: "application/json" } };
 
         axios.get(`https://api.coingecko.com/api/v3/coins/cardano`, config)
@@ -21,9 +22,7 @@ function Lend() {
             }).catch(err => {
                 console.log(err);
             })
-    }
-
-    LoadAdaPriceLend()
+    })
 
     const projectListLend = [];
 
@@ -41,7 +40,7 @@ function Lend() {
         }
         axios.get(`https://api.opencnft.io/1/policy/${params.policy}`, config)
             .then(res => {
-                const floor = `${res.data.floor_price /= Math.pow(10, 6)} ADA`;
+                const floor = res.data.floor_price /= Math.pow(10, 6);
                 const editImg = res.data.thumbnail.slice(12)
                 const pic = `ipfs.io/ipfs/${editImg}`;
                 setImgLend(pic)
@@ -51,6 +50,13 @@ function Lend() {
                 console.log(err);
             })
     }
+
+    /* Set the type of the input */
+    const [lendFloorType, setLendFloorType] = useState('text');
+    const [lendLengthType, setLendLengthType] = useState('text');
+    const [lendLoanValueType, setLendLoanValueType] = useState('text');
+    const [lendInterestType, setLendInterestType] = useState('text');
+    const [lendAdaPriceEOLType, setLendAdaPriceEOLType] = useState('text');
 
     /* Set and define the various states */
     const [imgLend, setImgLend] = useState(null);
@@ -63,77 +69,72 @@ function Lend() {
     const [loanInterestLendDollarEOL, setLoanInterestLendDollarEOL] = useState(null);
     const [ADAPriceEOL, setADAPriceEOL] = useState(null);
 
-    /* Set and define the various IDs */
-    const interestId = document.querySelector('#lend-loan-interest');
-    const loanValueAda = document.querySelector('#lend-loan-value-ada');
-    const loanValueWInterestADAID = document.querySelector('#lend-loan-value-winterest-ada');
-    const lendADAPriceID = document.querySelector('#lend-ada-price');
-    const lendADAPriceEOLID = document.querySelector('#lend-ada-price-eol');
-    const loanLength = document.querySelector('#lend-loan-length');
+    /* Set Initial Value on mount */
+    useEffect(() => {
+        setImgLend();
+        setFloorLend();
+        setLoanInterestLendADA();
+        setLoanInterestLendDollar();
+        setLoanStateLend('Set Loan Value');
+        setInterestLend('Set Loan Interest %');
+        setLengthLend('Set Loan Length Days');
+        setLoanInterestLendDollarEOL();
+        setADAPriceEOL('Set End of Loan ADA Price');
+    }, [])
 
     /* Set the length of the loan */
     const SetLoanLength = (e) => {
+        setLendLengthType('number');
         setLengthLend(e.target.value);
     }
 
     /* Set the value of the loan and alter ADA+Interest, ADA+Interest converted to dollar @ current ADA price, and ADA+Interest converted to Dollar @ EOL ADA price */
     const SetLoanValueADA = e => {
+        setLendLoanValueType('number');
         setLoanStateLend(e.target.value);
-        if (loanValueAda.value !== null || loanValueAda.value !== 0) {
-            setTimeout(() => {
-                setLoanInterestLendADA((loanValueAda.value * (1 + (interestId.value /= 100))).toFixed(2).toLocaleString())
-            }, 100);
-            setTimeout(() => {
-                setLoanInterestLendDollar((loanValueWInterestADAID.value * lendADAPriceID.value).toFixed(2).toLocaleString())
-            }, 150);
-            setTimeout(() => {
-                setLoanInterestLendDollarEOL((loanValueWInterestADAID.value * lendADAPriceEOLID.value).toFixed(2).toLocaleString())
-            }, 200);
-        }
     }
 
     /* Set the value of the loan interest and alter ADA+Interest, ADA+Interest converted to dollar @ current ADA price, and ADA+Interest converted to Dollar @ EOL ADA price */
     const SetLoanInterest = e => {
+        setLendInterestType('number');
         setInterestLend(e.target.value);
-        if (interestId.value !== null || interestId.value !== 0) {
-            setTimeout(() => {
-                setLoanInterestLendADA((loanValueAda.value * (1 + (interestId.value /= 100))).toFixed(2).toLocaleString())
-            }, 100);
-            setTimeout(() => {
-                setLoanInterestLendDollar((loanValueWInterestADAID.value * lendADAPriceID.value).toFixed(2).toLocaleString())
-            }, 150);
-            setTimeout(() => {
-                setLoanInterestLendDollarEOL((loanValueWInterestADAID.value * lendADAPriceEOLID.value).toFixed(2).toLocaleString())
-            }, 200);
-        }
     }
 
     /* Set and define ADA price at EOL and alter the ADA+Interest convert to dollars at EOL ADA price */
     const SetADAPriceEOL = e => {
-        setADAPriceEOL(e.target.value)
-        if (lendADAPriceEOLID.value !== null || lendADAPriceEOLID.value !== 0) {
-            setTimeout(() => {
-                setLoanInterestLendDollarEOL((loanValueWInterestADAID.value * lendADAPriceEOLID.value).toFixed(2).toLocaleString())
-            }, 100);
+        setADAPriceEOL(e.target.value);
+    }
+
+    const ChangeFocusLend = e => {
+        e.target.value = '';
+        if (e.target.id === 'lend-ada-price-eol'){
+            setLendAdaPriceEOLType('number');
+
         }
     }
+
+    useEffect(() => {
+        setLoanInterestLendADA(((1 + (interestLend / 100)) * (loanValueLend)).toFixed(2).toLocaleString());
+        setLoanInterestLendDollar(parseFloat(loanInterestLendADA * ADAPriceLend).toFixed(2).toLocaleString());
+        setLoanInterestLendDollarEOL(parseFloat(ADAPriceEOL * loanInterestLendADA).toFixed(2).toLocaleString());
+    })
 
     return (
         <section className='lend-section'>
             <div className='lend-area'>
                 <div className='input-row'>
                     <label className='input-label' for='lend-project'>Project</label>
-                    <select onChange={ChangeProjectLend} id='projects' className='input'>{projectListLend}</select>
+                    <details onChange={ChangeProjectLend} id='projects' className='input'>{projectListLend}</details>
                 </div>
-                <Input id='lend-floor-price' type='text' for='lend-floor-price' name='Floor Price' value={floorLend} />
-                <Input onChange={SetLoanLength} type='text' id='lend-loan-length' for='lend-loan-length' value={lengthLend} name='Loan Length Days' />
-                <Input onChange={SetLoanValueADA} id='lend-loan-value-ada' type='text' for='lend-loan-value-ada' name='Loan Value (ADA)' value={loanValueLend} />
-                <Input onChange={SetLoanInterest} step='.01' id='lend-loan-interest' type='text' for='lend-loan-interest' name='Interest' value={interestLend} />
-                <Input id='lend-loan-value-winterest-ada' type='text' for='lend-loan-value-winterest-ada' name='Loan w/Int (ADA)' value={loanInterestLendADA} />
-                <Input id='lend-loan-value-winterest-dollar' type='number' for='lend-loan-value-winterest-dollar' name='Current Loan w/Int ($)' value={loanInterestLendDollar} />
-                <Input id='lend-ada-price' type='text' for='lend-ada-price' name='Current ADA Price($)' value={ADAPriceLend} />
-                <Input onChange={SetADAPriceEOL} id='lend-ada-price-eol' type='text' for='lend-ada-price-eol' name='ADA Price @ End of Loan ' value={ADAPriceEOL} />
-                <Input id='lend-loan-value-winterest-dollar-eol' type='text' for='lend-loan-value-winterest-dollar' name='Current Loan w/Int ($)' value={loanInterestLendDollarEOL} />
+                <Input title='Floor Price' readonly id='lend-floor-price' type='number' for='lend-floor-price' name='lend-floor-price' value={floorLend} />
+                <Input title='Current ADA Price($)' readonly id='lend-ada-price' type='number' for='lend-ada-price' name='lend-ada-price' value={ADAPriceLend} />
+                <Input onFocus={ChangeFocusLend} title='Loan Length (Days)' onChange={SetLoanLength} type={lendLengthType} id='lend-loan-length' for='lend-loan-length' value={lengthLend} name='lend-loan-length' />
+                <Input onFocus={ChangeFocusLend} title='Loan Value (ADA)' onChange={SetLoanValueADA} step='1' id='lend-loan-value-ada' type={lendLoanValueType} for='lend-loan-value-ada' name='lend-loan-value-ada' value={loanValueLend} />
+                <Input onFocus={ChangeFocusLend} title='Interest %' onChange={SetLoanInterest} step='.5' id='lend-loan-interest' type={lendInterestType} for='lend-loan-interest' name='lend-loan-interest' value={interestLend} />
+                <Input title='Loan w/Int (ADA)' readonly id='lend-loan-value-winterest-ada' type='number' for='lend-loan-value-winterest-ada' name='lend-loan-value-winterest-ada' value={loanInterestLendADA} />
+                <Input title='Current Loan w/Int ($)' readonly id='lend-loan-value-winterest-dollar' type='number' for='lend-loan-value-winterest-dollar' name='lend-loan-value-winterest-dollar' value={loanInterestLendDollar} />
+                <Input onFocus={ChangeFocusLend} title='ADA Price($) @ End of Loan' onChange={SetADAPriceEOL} id='lend-ada-price-eol' type={lendAdaPriceEOLType} for='lend-ada-price-eol' step='.01' name='lend-ada-price-eol' value={ADAPriceEOL} />
+                <Input title='Loan w/Int ($) @ End of Loan' readonly id='lend-loan-value-winterest-dollar-eol' type='number' for='lend-loan-value-winterest-dollar' name='lend-loan-value-winterest-dollar' value={loanInterestLendDollarEOL} />
             </div>
         </section >
     )

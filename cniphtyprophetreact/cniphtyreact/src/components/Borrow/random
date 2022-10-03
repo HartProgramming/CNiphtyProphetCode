@@ -1,0 +1,83 @@
+
+    /* Set interest value and values with interest */
+    const SetInterestBorrow = e => {
+        setInterestBorrow(e.target.value)
+        setTimeout(() => {
+            setLoanInterestBorrow((((intValue.value /= 100) + 1) * loanValue.value).toFixed(2).toLocaleString());
+        }, 50);
+        setTimeout(() => {
+            setLoanInterestBorrowDollar((loanValueADAID.value * adaPriceSOLID.value).toFixed(2).toLocaleString());
+        }, 100);
+        setTimeout(() => {
+            console.log(repayID.value)
+            console.log(loanValueADAID.value)
+            setRepaymentBorrow((buyBackID.value * loanValueADAID.value).toLocaleString());
+        }, 150);
+        setTimeout(() => {
+            setProfitLoss((loanValueDollarsID.value - repayID.value).toFixed(2).toLocaleString())
+        }, 200);
+        setTimeout(() => {
+            setProfitLossADA((profitLossDollars.value /= buyBackID.value).toFixed(2).toLocaleString())
+        }, 250);
+
+    }
+
+    const clearInput = e => {
+        e.target.value = '';
+    }
+
+
+    const SetLoanValueADA = e => {
+        setLoanStateBorrow(e.target.value);
+        if (loanValue.value !== 0 || loanValue.value !== null) {
+            setTimeout(() => {
+                setLoanInterestBorrow((((intValue.value /= 100) + 1) * loanValue.value).toFixed(2).toLocaleString());
+            }, 50);
+            setTimeout(() => {
+                setLoanInterestBorrowDollar((loanValueADAID.value * adaPriceSOLID.value).toFixed(2).toLocaleString());
+            }, 100);
+            setTimeout(() => {
+                setRepaymentBorrow((buyBackID.value * loanValueADAID.value).toFixed(2).toLocaleString());
+            }, 150);
+            setTimeout(() => {
+                setProfitLoss((loanValueDollarsID.value - repayID.value).toFixed(2).toLocaleString());
+            }, 200);
+            setTimeout(() => {
+                setProfitLossADA((profitLossDollars.value /= buyBackID.value).toFixed(2).toLocaleString())
+            }, 210);
+        }
+    }
+
+    const SetRepayProfit = e => {
+        setADAEol(e.target.value);
+        if (buyBackID.value !== null || buyBackID.value !== 0) {
+            setRepaymentBorrow((buyBackID.value * loanValueADAID.value).toFixed(2).toLocaleString());
+            setTimeout(() => {
+                setProfitLoss((loanValueDollarsID.value - repayID.value).toFixed(2).toLocaleString());
+            }, 200);
+            setTimeout(() => {
+                setProfitLossADA((profitLossDollars.value /= buyBackID.value).toFixed(2).toLocaleString())
+            }, 210);
+
+        }
+    }
+
+    const SetADAPriceSOL = e => {
+        setADAPriceSOL(e.target.value);
+        setTimeout(() => {
+            setLoanInterestBorrow((((intValue.value /= 100) + 1) * loanValue.value).toFixed(2).toLocaleString());
+        }, 100);
+        setTimeout(() => {
+            setLoanInterestBorrowDollar((loanValueADAID.value * adaPriceSOLID.value).toFixed(2).toLocaleString());
+        }, 110);
+        setTimeout(() => {
+            setRepaymentBorrow((buyBackID.value * loanValueADAID.value).toFixed(2).toLocaleString());
+        }, 150);
+        setTimeout(() => {
+            setProfitLoss((loanValueDollarsID.value - repayID.value).toFixed(2).toLocaleString());
+        }, 200);
+        setTimeout(() => {
+            setProfitLossADA((profitLossDollars.value /= buyBackID.value).toFixed(2).toLocaleString())
+        }, 210);
+
+    }
