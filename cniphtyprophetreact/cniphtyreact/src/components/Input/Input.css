@@ -1,18 +1,17 @@
-.input-row{
+.input-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: auto;
-  margin: 15px;
-  width: 100%;
-  background: linear-gradient(145deg, rgb(70, 70, 251), rgb(63, 63, 255));
+  width: 90%;
+  margin-top: 30px;
+  background: linear-gradient(145deg, rgb(5, 5, 220), rgb(8, 8, 216));
   border-radius: 25px;
   padding-left: 20px;
-  padding: 8px;
+  padding: 14px;
   padding-right: 20px;
-  box-shadow: 3px 3px 8px rgb(8, 0, 255), -3px -3px 8px rgb(39, 39, 255);
+  box-shadow: 9px 9px 11px rgb(21, 21, 186), -9px 0 11px rgb(21, 21, 186);
 }
-
 
 .borrow-image {
   display: flex;
@@ -21,20 +20,24 @@
 }
 
 .input-label {
-  color: yellow;
+  color: white;
   font-weight: 700;
   font-size: 16px;
   width: 100%;
-  font-family: 'Poppins';
+  font-family: "Poppins";
 }
 
-.input{
-  color: black;
-  font-family: 'Poppins';
-  font-weight: 800;
+.input {
+  color: white;
+  font-family: "Poppins";
+  font-weight: 400;
   font-size: 16px;
+  border: none;
+  padding: 10px;
+  width: 80%;
   text-align: right;
-  box-shadow: 1px 1px 5px black, -1px -1px 5px black;
-  background-color: yellow;
-  border-radius: 25px;
+  box-shadow: 2.5px 2.5px 9px rgb(0, 18, 132), -2.5px -2.5px 9px rgb(8, 0, 115);
+  background-color: rgb(0, 108, 202);
+  background: linear-gradient(145deg, rgb(34, 71, 255), rgb(52, 52, 255));
+  border-radius: 5px;
 }

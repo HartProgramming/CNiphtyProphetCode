@@ -1,6 +1,6 @@
 import './NavBar.css';
 import React from 'react'
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import CNiphty from './CNiphtyProphetLogoCircle.svg';
 function NavBar() {
 

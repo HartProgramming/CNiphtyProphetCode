@@ -8,14 +8,15 @@ import AppLayout from "../AppLayout/AppLayout";
 import Lend from "../Lend/Lend";
 import Crypto from "../Crypto/Crypto";
 import CNFT from "../CNFT/CNFT";
+import '../Main/Main.css';
 
 function Main() {
 
 
   return (
-    <section>
-      <MainBar></MainBar>
-    </section>
+      <section className="main-section">
+        
+      </section>
   )
 }
 

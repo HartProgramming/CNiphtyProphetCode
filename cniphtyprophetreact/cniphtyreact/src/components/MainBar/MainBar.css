@@ -1,16 +1,19 @@
 .mainbar {
+  background: linear-gradient(145deg, rgb(8, 8, 186), rgb(6, 6, 166));
   display: flex;
-  margin: auto;
-  width: 78.5%;
+  border: 5px solid yellow;
   justify-content: center;
-  margin-top: 100px;
+  margin-top: 120px;
+  box-shadow: 4px 4px 11px rgb(21, 21, 186), -4px -4px 11px rgb(21, 21, 186);
+  position: relative;
   border-top-right-radius: 25px;
   border-top-left-radius: 25px;
 }
 
 .mainbar-div {
-  width: 100%;
   display: flex;
+  width: 100%;
+  position: relative;
   margin: auto;
   border-top-right-radius: 25px;
   border-top-left-radius: 25px;
@@ -19,6 +22,7 @@
 
 .mainbar-list-item {
   list-style: none;
+  display: flex;
   width: 25%;
 }
 
@@ -26,18 +30,22 @@
   height: 50px;
   width: 100%;
   transition: 0.4s;
-  background-color: black;
+  border: none;
+
+  background: linear-gradient(145deg, rgb(8, 8, 186), rgb(6, 6, 166));
 }
 
-.mainbar-button-clicked{
-    height: 50px;
+.mainbar-button-clicked {
+  height: 50px;
   width: 100%;
   transition: 0.4s;
-  background-color: yellow;
+  box-shadow: 0px 4px 5px black;
+  background: linear-gradient(145deg, yellow, rgb(223, 223, 8));
 }
 
 .mainbar-button:hover {
-  background-color: yellow;
+  box-shadow: 0px 4px 5px black;
+  background: linear-gradient(145deg, yellow, rgb(223, 223, 8));
 }
 
 .mainbar-item {
@@ -47,10 +55,9 @@
   font-weight: 600;
   transition: 0.4s;
   font-size: 16px;
-  padding: 7%;
-  padding-left: 28%;
-  padding-right: 28%;
-  letter-spacing: 1.36px;
+  padding-left: 20%;
+  padding-right: 20%;
+  letter-spacing: 1.16px;
 }
 
 .mainbar-item-clicked {
@@ -60,52 +67,19 @@
   font-weight: 600;
   transition: 0.4s;
   font-size: 16px;
-  padding: 7%;
-  padding-left: 28%;
-  padding-right: 28%;
-  letter-spacing: 1.36px;
+  padding-left: 25%;
+  padding-right: 25%;
+  letter-spacing: 1.16px;
 }
 
 .mainbar-item:hover {
   color: black;
 }
 
-#mainbar-button-left {
-  border-top-left-radius: 25px;
-  border-right: none;
-  border-bottom: 1px solid rgb(48, 117, 255);
-  border-top: 5px solid rgb(48, 117, 255);
-  border-left: 5px solid rgb(48, 117, 255);
+#mainbar-button-left{
+  border-top-left-radius: 21px;
 }
 
-#mainbar-button-right {
-    border-left: none;
-  border-top-right-radius: 25px;
-  border-top: 5px solid rgb(48, 117, 255);
-  border-right: 5px solid rgb(48, 117, 255);
-  border-bottom: 1px solid rgb(48, 117, 255);
-}
-
-#mid-right-button {
-    border-left: none;
-    border-right: none;
-  border-bottom: 1px solid rgb(48, 117, 255);
-  border-top: 5px solid rgb(48, 117, 255);
-}
-
-#mid-left-button {
-    border-right: none;
-    border-left: none;
-  border-bottom: 1px solid rgb(48, 117, 255);
-  border-top: 5px solid rgb(48, 117, 255);
-}
-
-.main-article {
-  background-color: white;
-  height: 800px;
-  width: 80%;
-  display: flex;
-  justify-content: center;
-  margin: auto;
-  border: 5px solid black;
+#mainbar-button-right{
+  border-top-right-radius: 21px;
 }

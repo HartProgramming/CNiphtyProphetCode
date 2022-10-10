@@ -1,14 +1,15 @@
 
 class NFTprops {
-    constructor(id, policyID, project) {
+    constructor(id, policyID, project, projectID) {
         this.id = id;
         this.policyID = policyID;
         this.project = project;
+        this.projectID = projectID
     }
 }
 
 
-const adaDiggies1 = new NFTprops(1, '09b74bdb51459166388c96ded33262892c30e28b8e1e12d33600a3ed', 'ADA Diggies 1',);
+const adaDiggies1 = new NFTprops(1, '09b74bdb51459166388c96ded33262892c30e28b8e1e12d33600a3ed', 'ADA Diggies 1');
 const adaDiggies2 = new NFTprops(2, 'd1031455a8cff011e461c249aa080b026873bd2f77aa0472f21f36d9', 'ADA Diggies 2');
 const adaHandle = new NFTprops(3, 'f0ff48bbb7bbe9d59a40f1ce90e9e9d0ff5002ec48f232b49ca0fb9a', 'ADA Handle');
 const adaInvadazS1 = new NFTprops(4, '2d503a06893ced6641243f987403b2e094d41dc46153286c9f49b2e5', 'ADA Invadaz S1');
@@ -116,5 +117,11 @@ const cnftArray = [adaDiggies1, adaDiggies2, adaHandle, adaInvadazS1, adaNinjasS
     jarHeads, knightsCornucopias, lazyLlamas, lazyLlamasMutants, lionLegendsS1, lionLegendsS2, lionLegendsS3, mandrillz, marsBirds, meltingMoonboy, metaPXLZ, mocossiITOs, mutantToads, oldMoneyBackBills, outerspace, overExposed, overExposedMekanism, parisianBuilding, pavia, pavs, pendulum, phantomKey, puurrtyCats, raisonDetreCryo,
     saltySeagullsSociety, sealSociety, smoothYetiMtnClub, smoothYetiSnowmobileParts, spacePugsAlpha, spaceBudz, uglyBros, uglyBrosXmas, uglyBrosDefinitive, uglyBrosValentine, unsignedAlgorithms, voyagePlanets, vyFI, woodLordsEarlyBird, yummiUniverseNaru, yummiUniverseSnoopy, jellyCubes, wildTangz];
 
+let count = 0;
+
+for (let x of cnftArray) {
+    x.projectID = `project${count}`
+    count++
+}
 
 export default cnftArray;

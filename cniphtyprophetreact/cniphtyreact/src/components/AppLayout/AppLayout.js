@@ -1,12 +1,17 @@
 import { Outlet } from 'react-router-dom';
 import React from 'react'
 import MainBar from '../MainBar/MainBar';
+import './AppLayout.css';
 
 const AppLayout = () => {
     return (
         <>
-            <MainBar />
-            <Outlet />
+            <section className='outlet'>
+
+                <MainBar></MainBar>
+                <Outlet></Outlet>
+
+            </section>
         </>
     )
 }

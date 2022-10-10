@@ -1,19 +1,28 @@
 import './CNFT.css';
 import cnftArray from '../CNFTProjectData';
-import React, { useEffect } from 'react';
+import React from 'react';
 import Input from '../Input/Input';
 import '../Input/Input.css';
+import Dropdown from '../Dropdown/Dropdown';
+import DropdownUl from '../DropdownUl/DropdownUl';
+import '../Dropdown/Dropdown.css';
 
 import { useState } from 'react';
 import axios from 'axios';
 
-const projectListCNFT = [];
-
-for (let x of cnftArray) {
-    projectListCNFT.push(<option key={x.id} value={x.policyID}>{x.project}</option>)
-}
-
 function CNFT() {
+
+    const projectListCNFT = [];
+    const projectListCNFTUl = [];
+
+    for (let x of cnftArray) {
+        projectListCNFT.push(<Dropdown idDropdown={x.projectID} textDropdown={x.project} valueDropdown={x.policyID}></Dropdown>);
+
+    }
+
+    for (let i of cnftArray) {
+        projectListCNFTUl.push(<DropdownUl forDropdown={i.projectID} textDropdown={i.project}></DropdownUl>);
+    }
 
     const [imgCNFT, setImgCNFT] = useState(null);
     const [floorCNFT, setFloorCNFT] = useState(0);
@@ -22,7 +31,7 @@ function CNFT() {
     const [assetHolders, setAssetHolders] = useState(0);
     const [assetsMinted, setAssetsMinted] = useState(0);
 
-    const collectCNFT = (e) => {
+    const ChangeProjectCNFT = (e) => {
 
         const selectedPolicyCNFT = e.target.value
         console.log(selectedPolicyCNFT)
@@ -61,13 +70,23 @@ function CNFT() {
             <article className='cnft-area'>
                 <div className='input-row'>
                     <label className='input-label' for='projects'>Project</label>
-                    <select onChange={collectCNFT} id='projects' className='input'>{projectListCNFT}</select>
-                </div>
-                <Input readonly title='Floor Price' placeholder='ADA Floor Price' id='cnft-floor-price' for='cnft-floor-price' name='cnft-floor-price' value={floorCNFT} />
-                <Input readonly title='Total Volume' placeholder='ADA Total Volume' id='cnft-total-volume' for='cnft-total-volume' value={volCNFT} name='cnft-total-volume' />
-                <Input readonly title='Mkt. Cap.' placeholder='ADA Market Cap' id='cnft-mktcap' for='cnft-mktcap' name='cnft-mktcap' type='text' value={mktCapCNFT} />
-                <Input readonly title='Wallet Holders' placeholder='# of Holders' id='cnft-wallet-holders' for='cnft-wallet-holders' name='cnft-wallet-holders' value={assetHolders} />
-                <Input readonly title='# of Assets' placeholder='Assets Minted' id='total-assets' for='total-assets' name='total-assets' value={assetsMinted} />
+                    <div className='select-options-container'>
+                        <div onClick={ChangeProjectCNFT} className='select-options-div-box' tabIndex='1'>
+                            {projectListCNFT}
+                            <img className="select-icon" src="http://cdn.onlinewebfonts.com/svg/img_295694.svg" alt="Arrow Icon" aria-hidden="true" />
+                        </div>
+                        <ul className='select-list'>
+                            <div className='list-container'>
+                                {projectListCNFTUl}
+
+                            </div>
+                        </ul>
+                    </div>                  </div>
+                <Input className='input' readonly title='Floor Price' placeholder='ADA Floor Price' id='cnft-floor-price' for='cnft-floor-price' name='cnft-floor-price' value={floorCNFT} />
+                <Input className='input' readonly title='Total Volume' placeholder='ADA Total Volume' id='cnft-total-volume' for='cnft-total-volume' value={volCNFT} name='cnft-total-volume' />
+                <Input className='input' readonly title='Mkt. Cap.' placeholder='ADA Market Cap' id='cnft-mktcap' for='cnft-mktcap' name='cnft-mktcap' type='text' value={mktCapCNFT} />
+                <Input className='input' readonly title='Wallet Holders' placeholder='# of Holders' id='cnft-wallet-holders' for='cnft-wallet-holders' name='cnft-wallet-holders' value={assetHolders} />
+                <Input className='input' readonly title='# of Assets' placeholder='Assets Minted' id='total-assets' for='total-assets' name='total-assets' value={assetsMinted} />
             </article>
         </section>
     )

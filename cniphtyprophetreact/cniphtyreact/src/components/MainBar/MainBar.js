@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import './MainBar.css';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 function MainBar() {
-    const mainbarButton = document.querySelectorAll('.mainbar-button')
 
     const [leftButton, setLeftButton] = useState('mainbar-button');
     const [midLeftButton, setMidLeftButton] = useState('mainbar-button');
@@ -21,7 +20,7 @@ function MainBar() {
         setRightButton('mainbar-button');
         setMidRightButton('mainbar-button');
         setMidLeftButton('mainbar-button');
-        
+
         setRightA('mainbar-item');
         setMidRightA('mainbar-item');
         setMidLeftA('mainbar-item');
@@ -65,24 +64,22 @@ function MainBar() {
     }
 
     return (
-        <section>
-            <nav className='mainbar'>
-                <div className='mainbar-div'>
-                    <li className='mainbar-list-item'>
-                        <button onClick={changeLeftBtn} id='mainbar-button-left' className={leftButton}><Link className={leftA} to='/borrow'>Borrow</Link></button>
-                    </li>
-                    <li className='mainbar-list-item'>
-                        <button onClick={changeMidLeftBtn} id='mid-left-button' className={midLeftButton}><Link className={midLeftA} to='/lend'>Lend</Link></button>
-                    </li>
-                    <li className='mainbar-list-item'>
-                        <button onClick={changeMidRightBtn} id='mid-right-button' className={midRightButton}><Link className={midRightA} to='/cnft'>CNFT</Link></button>
-                    </li>
-                    <li className='mainbar-list-item'>
-                        <button onClick={changeRightBtn} id='mainbar-button-right' className={rightButton}><Link className={rightA} to='/crypto'>Crypto</Link></button>
-                    </li>
-                </div>
-            </nav>
-        </section>
+        <nav className='mainbar'>
+            <div className='mainbar-div'>
+                <li className='mainbar-list-item'>
+                    <button onClick={changeLeftBtn} id='mainbar-button-left' className={leftButton}><Link className={leftA} to='/borrow'>Borrow</Link></button>
+                </li>
+                <li className='mainbar-list-item'>
+                    <button onClick={changeMidLeftBtn} id='mid-left-button' className={midLeftButton}><Link className={midLeftA} to='/lend'>Lend</Link></button>
+                </li>
+                <li className='mainbar-list-item'>
+                    <button onClick={changeMidRightBtn} id='mid-right-button' className={midRightButton}><Link className={midRightA} to='/cnft'>CNFT</Link></button>
+                </li>
+                <li className='mainbar-list-item'>
+                    <button onClick={changeRightBtn} id='mainbar-button-right' className={rightButton}><Link className={rightA} to='/crypto'>Crypto</Link></button>
+                </li>
+            </div>
+        </nav>
     )
 }
 

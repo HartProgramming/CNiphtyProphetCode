@@ -3,6 +3,9 @@ import './Lend.css';
 import '../Input/Input.css';
 import Input from '../Input/Input';
 import axios from 'axios';
+import Dropdown from '../Dropdown/Dropdown';
+import DropdownUl from '../DropdownUl/DropdownUl';
+import '../Dropdown/Dropdown.css'
 import cnftArray from '../CNFTProjectData';
 import { useState, useEffect } from 'react';
 
@@ -25,9 +28,15 @@ function Lend() {
     })
 
     const projectListLend = [];
+    const projectListLendUl = [];
 
     for (let x of cnftArray) {
-        projectListLend.push(<option className='projects' key={x.id} value={x.policyID}>{x.project}</option>)
+        projectListLend.push(<Dropdown idDropdown={x.projectID} textDropdown={x.project} valueDropdown={x.policyID}></Dropdown>);
+
+    }
+
+    for (let i of cnftArray) {
+        projectListLendUl.push(<DropdownUl forDropdown={i.projectID} textDropdown={i.project}></DropdownUl>);
     }
 
     const ChangeProjectLend = (e) => {
@@ -107,7 +116,7 @@ function Lend() {
 
     const ChangeFocusLend = e => {
         e.target.value = '';
-        if (e.target.id === 'lend-ada-price-eol'){
+        if (e.target.id === 'lend-ada-price-eol') {
             setLendAdaPriceEOLType('number');
 
         }
@@ -124,17 +133,29 @@ function Lend() {
             <div className='lend-area'>
                 <div className='input-row'>
                     <label className='input-label' for='lend-project'>Project</label>
-                    <details onChange={ChangeProjectLend} id='projects' className='input'>{projectListLend}</details>
-                </div>
-                <Input title='Floor Price' readonly id='lend-floor-price' type='number' for='lend-floor-price' name='lend-floor-price' value={floorLend} />
-                <Input title='Current ADA Price($)' readonly id='lend-ada-price' type='number' for='lend-ada-price' name='lend-ada-price' value={ADAPriceLend} />
-                <Input onFocus={ChangeFocusLend} title='Loan Length (Days)' onChange={SetLoanLength} type={lendLengthType} id='lend-loan-length' for='lend-loan-length' value={lengthLend} name='lend-loan-length' />
-                <Input onFocus={ChangeFocusLend} title='Loan Value (ADA)' onChange={SetLoanValueADA} step='1' id='lend-loan-value-ada' type={lendLoanValueType} for='lend-loan-value-ada' name='lend-loan-value-ada' value={loanValueLend} />
-                <Input onFocus={ChangeFocusLend} title='Interest %' onChange={SetLoanInterest} step='.5' id='lend-loan-interest' type={lendInterestType} for='lend-loan-interest' name='lend-loan-interest' value={interestLend} />
-                <Input title='Loan w/Int (ADA)' readonly id='lend-loan-value-winterest-ada' type='number' for='lend-loan-value-winterest-ada' name='lend-loan-value-winterest-ada' value={loanInterestLendADA} />
-                <Input title='Current Loan w/Int ($)' readonly id='lend-loan-value-winterest-dollar' type='number' for='lend-loan-value-winterest-dollar' name='lend-loan-value-winterest-dollar' value={loanInterestLendDollar} />
-                <Input onFocus={ChangeFocusLend} title='ADA Price($) @ End of Loan' onChange={SetADAPriceEOL} id='lend-ada-price-eol' type={lendAdaPriceEOLType} for='lend-ada-price-eol' step='.01' name='lend-ada-price-eol' value={ADAPriceEOL} />
-                <Input title='Loan w/Int ($) @ End of Loan' readonly id='lend-loan-value-winterest-dollar-eol' type='number' for='lend-loan-value-winterest-dollar' name='lend-loan-value-winterest-dollar' value={loanInterestLendDollarEOL} />
+                    <div className='select-options-container'>
+                        <div onClick={ChangeProjectLend} className='select-options-div-box' tabIndex='1'>
+                            {projectListLend}
+                            <img className="select-icon" src="http://cdn.onlinewebfonts.com/svg/img_295694.svg" alt="Arrow Icon" aria-hidden="true" />
+                        </div>
+                        <ul className='select-list'>
+                            <div className='list-container'>
+                                {projectListLendUl}
+
+                            </div>
+                        </ul>
+
+
+                    </div>                </div>
+                <Input className='input'  title='Floor Price' readonly id='lend-floor-price' type='number' for='lend-floor-price' name='lend-floor-price' value={floorLend} />
+                <Input className='input'  title='Current ADA Price($)' readonly id='lend-ada-price' type='number' for='lend-ada-price' name='lend-ada-price' value={ADAPriceLend} />
+                <Input className='input'  onFocus={ChangeFocusLend} title='Loan Length (Days)' onChange={SetLoanLength} type={lendLengthType} id='lend-loan-length' for='lend-loan-length' value={lengthLend} name='lend-loan-length' />
+                <Input className='input'  onFocus={ChangeFocusLend} title='Loan Value (ADA)' onChange={SetLoanValueADA} step='1' id='lend-loan-value-ada' type={lendLoanValueType} for='lend-loan-value-ada' name='lend-loan-value-ada' value={loanValueLend} />
+                <Input className='input'  onFocus={ChangeFocusLend} title='Interest %' onChange={SetLoanInterest} step='.5' id='lend-loan-interest' type={lendInterestType} for='lend-loan-interest' name='lend-loan-interest' value={interestLend} />
+                <Input className='input'  title='Loan w/Int (ADA)' readonly id='lend-loan-value-winterest-ada' type='number' for='lend-loan-value-winterest-ada' name='lend-loan-value-winterest-ada' value={loanInterestLendADA} />
+                <Input  className='input' title='Current Loan w/Int ($)' readonly id='lend-loan-value-winterest-dollar' type='number' for='lend-loan-value-winterest-dollar' name='lend-loan-value-winterest-dollar' value={loanInterestLendDollar} />
+                <Input className='input'  onFocus={ChangeFocusLend} title='ADA Price($) @ End of Loan' onChange={SetADAPriceEOL} id='lend-ada-price-eol' type={lendAdaPriceEOLType} for='lend-ada-price-eol' step='.01' name='lend-ada-price-eol' value={ADAPriceEOL} />
+                <Input className='input'  title='Loan w/Int ($) @ End of Loan' readonly id='lend-loan-value-winterest-dollar-eol' type='number' for='lend-loan-value-winterest-dollar' name='lend-loan-value-winterest-dollar' value={loanInterestLendDollarEOL} />
             </div>
         </section >
     )

@@ -11,6 +11,7 @@ import CNFT from './components/CNFT/CNFT';
 import Crypto from './components/Crypto/Crypto';
 import AppLayout from './components/AppLayout/AppLayout';
 import Main from './components/Main/Main'
+import MainBar from './components/MainBar/MainBar';
 
 function App() {
 
@@ -23,11 +24,9 @@ function App() {
           <Route path='donate' element={<Donate />} />
           <Route path='app' element={<AppLayout />} />
         </Route>
-      </Routes>
-      <Routes>
         <Route element={<Layout />}>
-          <Route element={<AppLayout />}>
-            <Route path='borrow' element={<Borrow />} />
+          <Route element={<AppLayout />} >
+            <Route path='borrow' index element={<Borrow />} />
             <Route path='lend' element={<Lend />} />
             <Route path='crypto' element={<Crypto />} />
             <Route path='cnft' element={<CNFT />} />

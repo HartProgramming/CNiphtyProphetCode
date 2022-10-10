@@ -1,0 +1,138 @@
+.select-options-div {
+  display: flex;
+  border-radius: 15px;
+}
+
+.select-options-option {
+  display: none;
+  border-radius: 15px;
+}
+
+.select-options-option:checked + .select-options-text {
+  display: block;
+  text-align: center;
+  border-radius: 5px;
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 16px;
+  border: none;
+  padding: 10px;
+}
+
+.select-options-text {
+  display: none;
+  width: 100%;
+  margin: 0;
+  padding: 15px;
+  background-color: #fff;
+}
+
+.select-options-container {
+  display: block;
+  width: 100%;
+  background-color: white;
+  font-size: 16px;
+  border-radius: 15px;
+  color: black;
+}
+
+.select-options-div-box {
+  position: relative;
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  border-radius: 15px;
+  outline: none;
+}
+
+.select-options-div-box:focus + .select-list {
+  opacity: 1;
+  -webkit-animation-name: none;
+  animation-name: none;
+}
+
+.select-options-div-box:focus + .select-list .select-box {
+  cursor: pointer;
+}
+
+.select-options-div-box:focus .select-icon {
+  -webkit-transform: translateY(-50%) rotate(180deg);
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.select-icon {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 23px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: white;
+  transition: 0.2s ease;
+}
+
+.list-container {
+  height: 300px;
+  position: relative;
+}
+
+.select-list {
+  position: absolute;
+  width: 30%;
+  overflow: auto;
+  max-height: 100%;
+  padding: 0;
+  list-style: none;
+  opacity: 0;
+  -webkit-animation-name: HideList;
+  animation-name: HideList;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-timing-function: step-start;
+  animation-timing-function: step-start;
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+}
+
+.select-box {
+  display: block;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.select-box:hover,
+.select-box:focus {
+  color: black;
+  background-color: yellow;
+}
+
+.select-options-container:focus {
+  color: black;
+  background-color: yellow;
+}
+
+@-webkit-keyframes HideList {
+  from {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+  to {
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+  }
+}
+
+@keyframes HideList {
+  from {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+  to {
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+  }
+}

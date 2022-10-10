@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './Crypto.css';
 import axios from 'axios';
-import Input from '../Input/Input';
-import Borrow from '../Borrow/Borrow';
+import Dropdown from '../Dropdown/Dropdown';
+import DropdownUl from '../DropdownUl/DropdownUl';
+import '../Dropdown/Dropdown.css';
+import Input from '../Input/Input'
+import '../Input/Input.css'
 
 class Ecosystem {
     constructor(id, name, coinId, img) {
@@ -39,14 +42,20 @@ const polygon = new Ecosystem(23, 'Polygon', 'matic-network');
 const polkadot = new Ecosystem(24, 'Polkadot', 'polkadot');
 const cosmos = new Ecosystem(25, 'Cosmos', 'cosmos');
 
-function Crypto() {
+function Crypto(props) {
 
     const tokenArray = [polygon, polkadot, cosmos, ripple, binance, avalanche, chainlink, ape, sandbox, aave, decentraland, ada, ardana, meld, wmt, wrt, liqwid, pavia, copi, vyfi, sundae, solana, bitcoin, ethereum, algorand];
-    const tokenSort = tokenArray.sort((a, b) => a.name < b.name ? -1 : 1);
-    const tokenList = [];
+    const tokenSortList = tokenArray.sort((a, b) => a.name < b.name ? -1 : 1);
 
-    for (let x of tokenSort) {
-        tokenList.push(<option className='projects' key={x.id} value={x.coinId}>{x.name}</option>);
+    const projectListCrypto = [];
+    const projectListCryptoUl = [];
+
+    for (let x of tokenSortList) {
+        projectListCrypto.push(<Dropdown idDropdown={x.coinId} textDropdown={x.name} valueDropdown={x.coinId}></Dropdown>);
+    }
+
+    for (let i of tokenSortList) {
+        projectListCryptoUl.push(<DropdownUl forDropdown={i.coinId} textDropdown={i.name}></DropdownUl>);
     }
 
     const ChangeProjectCrypto = (e) => {
@@ -70,7 +79,6 @@ function Crypto() {
 
     const [price, setPrice] = useState();
     const [gainLoss, setGainLoss] = useState();
-    const [volume, setVolume] = useState();
     const [mktCap, setMktCap] = useState();
     const [cryptoImg, setCryptoImg] = useState();
     const [coinName, setCoinName] = useState();
@@ -78,10 +86,19 @@ function Crypto() {
     return (
         <div className='cardano-ecosystem'>
             <div className='cardano-data-div'>
-                <div className='input-row'>
+                <div className='crypto-input input-row'>
                     <label className='crypto-label input-label' for='project'>Coin</label>
-                    <select onChange={ChangeProjectCrypto} id='projects' className='input'>{tokenList}</select>
-
+                    <div className='select-options-container'>
+                        <div onClick={ChangeProjectCrypto} className='select-options-div-box' tabIndex='1'>
+                            {projectListCrypto}
+                            <img className="select-icon" src="http://cdn.onlinewebfonts.com/svg/img_295694.svg" alt="Arrow Icon" aria-hidden="true" />
+                        </div>
+                        <ul className='select-list'>
+                            <div className='list-container'>
+                                {projectListCryptoUl}
+                            </div>
+                        </ul>
+                    </div>
                 </div>
                 <table className='cardano-table'>
                     <tr className='cardano-table-row'>
@@ -99,6 +116,16 @@ function Crypto() {
                         <td>{mktCap}</td>
                     </tr>
                 </table>
+                <div className='crypto-input-collection'>
+                    <Input className='input' htmlFor='borrowed-amount-ada' id='borrowed-amount-ada' value={props.borrowed} type='number' title='Borrowed Amount ADA' step='1' />
+                    <Input className='input' htmlFor='borrowed-amount-dollar' id='borrowed-amount-dollar' value='0' type='number' title='Borrowed Amount ($)' step='1' />
+                    <Input className='input' htmlFor='crypto-purchased-amount-crypto' id='crypto-purchased-amount-crypto' value='0' type='number' title='Crypto Amount Purchased' step='1' />
+                    <Input className='input' htmlFor='crypto-purchased-amount-dollar' id='crypto-purchased-amount-dollar' value='0' type='number' title='Crypto Amount Purchased ($)' step='1' />
+                    <Input className='input' htmlFor='price-crypto-eol' id='price-crypto-eol' value='0' type='number' title='Crypto Price ($) @ EOL' step='.01' />
+                    <Input className='input' htmlFor='value-crypto-eol' id='value-crypto-eol' value='0' type='number' title='Value @ EOL ($)' step='1' />
+                    <Input className='input' htmlFor='crypto-profit-loss-dollar' id='crypto-profit-loss-dollar' value='0' type='number' title='Profit/Loss ($)' step='.01' />
+                    <Input className='input' htmlFor='crypto-profit-loss-ada' id='crypto-profit-loss-ada' value='0' type='number' title='Profit/Loss ADA' step='.01' />
+                </div>
             </div>
         </div>
     )

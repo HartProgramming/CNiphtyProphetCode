@@ -1,13 +1,11 @@
 .cnft-section {
-  display: flex;
-  margin: auto;
   justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  background-color: black;
-  width: 78.6%;
-  border: 5px solid rgb(48, 117, 255);
+  background: linear-gradient(145deg, rgb(19, 19, 230), rgb(12, 12, 226));
+  margin: auto;
+  display: flex;
+  box-shadow: 9px 9px 11px rgb(21, 21, 186), -9px 0 11px rgb(21, 21, 186);
   margin-bottom: 50px;
+  border-top: 5px solid blue;
   border-bottom-right-radius: 25px;
   border-bottom-left-radius: 25px;
 }
