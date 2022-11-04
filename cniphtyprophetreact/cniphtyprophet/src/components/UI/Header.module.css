@@ -1,0 +1,42 @@
+
+.container{
+    width: 100%;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    height: 65px;
+}
+
+.header{
+    width: 50%;
+    display: flex;
+    color: white;
+    justify-content: center;
+}
+
+.buttonDiv{
+    width: 30%;
+    margin: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button{
+    padding: 10px;
+    font-weight: 600;
+    font-family: 'Poppins';
+    border-radius: 30px;
+    width: 150px;
+    background-color: yellow;
+    font-size: 20px;
+}
+
+.imgDiv{
+    width: 15%;
+}
+
+.img{
+    height: 70px;
+    margin-left: 20px;
+}

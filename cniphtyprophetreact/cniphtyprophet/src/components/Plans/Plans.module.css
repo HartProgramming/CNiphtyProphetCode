@@ -1,0 +1,50 @@
+
+
+.container{
+    width: 75%;
+    padding: 35px;
+    position: relative;
+    margin: auto;
+    margin-top: 35px;
+    display: flex;
+    overflow-x: auto;
+    margin-bottom: 45px;
+    overflow-y: hidden;
+    text-align: center;
+    justify-content: center;
+}
+
+.table{
+    margin: auto;
+    overflow: scroll;
+    width: 95%;
+    height: auto;
+    position: relative;
+    color: white;
+    justify-content: center;
+    text-align: center;
+}
+
+.button{
+    background-color: yellow;
+    color: black;
+    border-radius: 35px;
+    width: 135px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1.25px;
+}
+
+.titleclass{
+    text-align: left;
+    padding: 7px;
+    letter-spacing: 1.35px;
+}
+
+.row{
+    margin-top: 20px;
+}
+
+.headerclass{
+    letter-spacing: 1.5px;
+}

@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    margin: auto;
+    width: 300px;
+    align-items: center;
+    text-align: center;
+    margin-top: 70px;
+    border-radius: 35px;
+    background-color: white;
+}
+
+.logo{
+    animation: spin 1s infinite;
+}
+
+@keyframes spin {
+    0%{
+        transform: rotateZ(0deg);
+    }
+    100%{
+        transform: rotateZ(360deg);
+    }
+}

@@ -1,0 +1,65 @@
+.container{
+    width: 92%;
+    align-items: center;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.panelcontainer{
+    width: 100%;
+    display: flex;
+    margin: auto;
+    justify-content: space-around;
+    flex-direction: row;
+    padding: 10px;
+    margin: 5px;
+    flex-wrap: wrap;
+}
+
+.panelBorrow{
+    width: 60%;
+    margin: auto;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: auto;
+}
+
+.panelLend{
+    width: 30%;
+    margin: auto;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.panelCNFT{
+    width: 45%;
+    margin: auto;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: auto;
+}
+
+.panelCrypto{
+    width: 45%;
+    margin: auto;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: auto;
+}
+
+.header{
+    color: white;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    justify-content: center;
+    letter-spacing: 1.35px;
+  }
+
+  .inputscontainer{
+    display: flex;
+    margin: auto;
+    flex-wrap: wrap;
+  }

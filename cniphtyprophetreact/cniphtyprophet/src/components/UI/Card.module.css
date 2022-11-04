@@ -1,0 +1,9 @@
+.div{
+    background-color: rgb(0, 0, 217);
+    box-shadow: 5px 5px 11px rgb(0, 0, 186), -5px -5px 11px rgb(0, 0, 186);
+    height: auto;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+}

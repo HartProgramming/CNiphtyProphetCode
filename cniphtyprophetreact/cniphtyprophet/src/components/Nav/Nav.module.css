@@ -1,0 +1,32 @@
+.nav{
+    width: 100%;
+   display: flex;
+   margin: auto;
+   justify-content: flex-end;
+   margin-top: 15px;
+   margin-bottom: 45px;
+}
+
+.ul{
+    list-style: none;
+    display: flex;
+    margin: auto;
+    margin-left: 5px;
+    justify-content: flex-end;
+}
+
+.li{
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.li:active{
+    color: white;
+}
+
+.li:visited{
+    color: white;
+}
