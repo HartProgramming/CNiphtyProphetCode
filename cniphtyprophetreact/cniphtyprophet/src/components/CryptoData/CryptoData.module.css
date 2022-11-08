@@ -1,8 +1,10 @@
 .container{
     display: flex;
-    flex-direction: column;
     width: 80%;
     color: white;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
     margin-top: 50px;
 }
 
@@ -56,8 +58,13 @@
     text-align: center;
   }
   
-  .cardanotablerow {
+.wrapper{
+  display: none;
+}
 
+.width{
+  width: 60%;
+  margin-bottom: 22px;
 }
   
   .coinsymbol {
@@ -80,4 +87,93 @@
 
   .thanks{
     text-align: center;
+  }
+
+  @media screen and (max-width: 480px) {
+    .container{
+      display: flex;
+      width: 70%;
+      color: white;
+      overflow-x: auto;
+      overflow-y: hidden;
+      flex-direction: column;
+      align-items: center;
+      margin: auto;
+      margin-top: 50px;
+  }
+  
+  .cardano-ecosystem {
+      justify-content: center;
+      background: linear-gradient(145deg, rgb(19, 19, 230), rgb(12, 12, 226));
+      margin: auto;
+      display: flex;
+      box-shadow: 9px 9px 11px rgb(21, 21, 186), -9px 0 11px rgb(21, 21, 186);
+      margin-bottom: 80px;
+      border-top: 5px solid blue;
+      border-bottom-right-radius: 25px;
+      border-bottom-left-radius: 25px;
+    }
+    
+    .cardano-data-div {
+      color: white;
+      width: 98%;
+      flex-direction: column;
+      margin: auto;
+      justify-content: center;
+      display: flex;
+      margin-bottom: 25px;
+      align-items: center;
+    }
+    
+    .cardanotable {
+      width: 100%;
+      padding: 10px;
+      overflow: scroll;
+      justify-content: center;
+      margin: auto;
+      border-radius: 25px;
+      background: linear-gradient(145deg, rgb(5, 5, 220), rgb(8, 8, 216));
+      box-shadow: 9px 9px 11px rgb(21, 21, 186), -9px 0 11px rgb(21, 21, 186);
+    }
+    
+    .coin-symbol {
+      height: 50px;
+    }
+    
+    tr,
+    td,
+    th {
+    }
+    
+    th {
+      height: 50px;
+      text-align: center;
+    }
+    
+    td {
+      font-weight: 500;
+      text-align: center;
+    }
+    
+  .wrapper{
+    display: none;
+  }
+  
+  .width{
+    width: 90%;
+    margin-bottom: 22px;
+  }
+    
+    .coinsymbol {
+      margin-top: 9px;
+      border-radius: 50%;
+    }
+  
+    #id{
+      margin-bottom: 25px;
+    }
+  
+    .thanks{
+      text-align: center;
+    }
   }

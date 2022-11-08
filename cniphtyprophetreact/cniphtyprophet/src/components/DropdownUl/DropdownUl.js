@@ -1,4 +1,4 @@
-import '../Dropdown/Dropdown.css';
+import classes from '../Dropdown/Dropdown.module.css';
 import React from 'react';
 
 function DropdownUl(props){
@@ -6,7 +6,7 @@ function DropdownUl(props){
 
     return(
         <li>
-            <label className='select-box' aria-hidden='aria-hidden' htmlFor={props.forDropdown}>{props.textDropdown}</label>
+            <label className={classes.selectBox} aria-hidden='aria-hidden' htmlFor={props.forDropdown}>{props.textDropdown}</label>
         </li> 
     )
 }

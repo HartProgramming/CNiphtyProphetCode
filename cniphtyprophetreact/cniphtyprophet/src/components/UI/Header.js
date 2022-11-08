@@ -12,7 +12,7 @@ const Header = () => {
         <h1>CNiphtyProphet</h1>
       </div>
       <div className={classes.buttonDiv}>
-        <Button style={classes.button} title={"Connect"} />
+        <Button style={classes.button} title={"Soon"} />
       </div>
     </div>
   );

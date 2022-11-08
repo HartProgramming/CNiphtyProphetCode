@@ -1,19 +1,23 @@
 .container{
     width: 92%;
-    align-items: center;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start;
+    flex-direction: row;
+}
+
+.wrapper{
+    display: none;
 }
 
 .panelcontainer{
     width: 100%;
     display: flex;
-    margin: auto;
-    justify-content: space-around;
-    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
     padding: 10px;
-    margin: 5px;
+    margin: auto;
     flex-wrap: wrap;
 }
 
@@ -34,15 +38,16 @@
 }
 
 .panelCNFT{
-    width: 45%;
+    width: 35%;
     margin: auto;
     flex-direction: column;
     flex-wrap: wrap;
+    display: flex;
     height: auto;
 }
 
 .panelCrypto{
-    width: 45%;
+    width: 55%;
     margin: auto;
     flex-direction: column;
     flex-wrap: wrap;
@@ -61,5 +66,134 @@
   .inputscontainer{
     display: flex;
     margin: auto;
+    justify-content: center;
+    flex-direction: row;
     flex-wrap: wrap;
+    margin-top: 25px;
+    width: 100%;
   }
+
+  .input{
+    color: black;
+    font-family: "Poppins";
+    text-align: right;
+    margin-left: 15px;
+    background: linear-gradient(145deg, rgb(255, 255, 0), rgb(242, 255, 61));
+    border-radius: 12px;
+    border: none;
+    padding: 7px;
+}
+
+
+
+  @media screen and (max-width: 1000px){
+    .container{
+        width: 80%;
+    }
+
+    .panelLend{
+        width: 90%;
+        margin: 10px;
+    }
+    .panelBorrow{
+        margin: 10px;
+        width: 90%;
+    }
+    .panelCNFT{
+        width: 90%;
+        margin: 10px;
+    }
+    .panelCrypto{
+        width: 90%;
+        margin: 10px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .container{
+        width: 82%;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        flex-direction: row;
+    }
+    
+    .wrapper{
+        display: none;
+    }
+    
+    .panelcontainer{
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        padding: 10px;
+        margin: auto;
+        flex-wrap: wrap;
+    }
+    
+    .panelBorrow{
+        width: 100%;
+        margin: 15px;
+        flex-wrap: wrap;
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .panelLend{
+        width: 100%;
+        margin: auto;
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: 100%;
+    }
+    
+    .panelCNFT{
+        width: 100%;
+        margin: 15px;
+        margin-top: -10px;
+        flex-direction: column;
+        flex-wrap: wrap;
+        display: flex;
+        height: auto;
+    }
+    
+    .panelCrypto{
+        width: 100%;
+        margin: auto;
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: auto;
+    }
+    
+    .header{
+        color: white;
+        display: flex;
+        margin: auto;
+        flex-direction: column;
+        justify-content: center;
+        letter-spacing: 1.35px;
+      }
+    
+      .inputscontainer{
+        display: flex;
+        margin: auto;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 25px;
+        width: 100%;
+      }
+    
+      .input{
+        color: black;
+        font-family: "Poppins";
+        text-align: right;
+        margin-left: 15px;
+        background: linear-gradient(145deg, rgb(255, 255, 0), rgb(242, 255, 61));
+        border-radius: 12px;
+        border: none;
+        padding: 7px;
+    }
+}

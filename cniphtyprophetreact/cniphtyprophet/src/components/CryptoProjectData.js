@@ -1,8 +1,8 @@
 
 
 class Ecosystem {
-    constructor(name, coinId, id) {
-        this.name = name;
+    constructor(crypto, coinId, id) {
+        this.crypto = crypto;
         this.coinId = coinId;
         this.id = id;
     }
@@ -68,7 +68,7 @@ const tokenArray = [
     ethereum,
     algorand
   ];
-  const tokenSortList = tokenArray.sort((a, b) => (a.name < b.name ? -1 : 1));
+  const tokenSortList = tokenArray.sort((a, b) => (a.crypto < b.crypto ? -1 : 1));
   let num = 0;
   for(let x of tokenSortList){
     x.id = `crypto${num}`

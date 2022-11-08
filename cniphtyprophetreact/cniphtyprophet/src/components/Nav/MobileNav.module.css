@@ -1,0 +1,13 @@
+.ul{
+    flex-direction: column;
+    justify-content: flex-start;
+    display: flex;
+    margin-top: -25px;
+    padding: 5px;
+    width: 50%;
+}
+
+.li{
+    padding: 10px;
+    margin-top: 5px;
+}

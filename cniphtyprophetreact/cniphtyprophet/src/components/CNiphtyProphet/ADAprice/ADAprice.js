@@ -1,12 +1,12 @@
 import React from "react";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Input from "../../Input/Input";
 
 function ADAprice(props) {
   /* Set state for the price of ADA in the borrow component */
   const [adaPrice, setADAPrice] = useState("");
-  const { price, setPrice } = props;
+
 
   useEffect(() => {
     const config = { headers: { Accept: "application/json" } };

@@ -1,0 +1,140 @@
+
+.container{
+    width: 90%;
+    display: flex;
+    margin: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+    font-size: 21px;
+    margin: auto;
+    letter-spacing: 1.35px;
+}
+
+.header{
+    text-align: center;
+    color: white;
+    letter-spacing: 1.35px;
+}
+
+.li{
+    text-align: left;
+    margin: 7px;
+}
+
+.a{
+    text-decoration: none;
+    color: yellow;
+    margin: 0;
+}
+
+.a:hover{
+    color:white;
+    background-color: blue;
+}
+
+.details{
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 480px) {
+    
+.container{
+    width: 80%;
+    display: flex;
+    margin: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 85%;
+    font-size: 21px;
+    margin: auto;
+    letter-spacing: 1.35px;
+}
+
+.header{
+    text-align: center;
+    color: white;
+    letter-spacing: 1.35px;
+}
+
+.li{
+    text-align: left;
+    margin: 7px;
+}
+
+.a{
+    text-decoration: none;
+    color: yellow;
+    margin: 0;
+}
+
+.a:hover{
+    color:white;
+    background-color: blue;
+}
+
+.details{
+    margin-top: 20px;
+    width: 75%;
+}
+}
+
+@media screen and (max-width: 1000px) {
+    
+    .container{
+        width: 80%;
+        display: flex;
+        margin: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .list{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 85%;
+        font-size: 21px;
+        margin: auto;
+        letter-spacing: 1.35px;
+    }
+    
+    .header{
+        text-align: center;
+        color: white;
+        letter-spacing: 1.35px;
+    }
+    
+    .li{
+        text-align: left;
+        margin: 7px;
+    }
+    
+    .a{
+        text-decoration: none;
+        color: yellow;
+        margin: 0;
+    }
+    
+    .a:hover{
+        color:white;
+        background-color: blue;
+    }
+    
+    .details{
+        margin-top: 20px;
+        width: 75%;
+    }
+    }
