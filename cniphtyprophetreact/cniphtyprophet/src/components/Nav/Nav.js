@@ -15,18 +15,13 @@ function Nav(props) {
         </li>
 
         <li className={props.li}>
-          <Link onClick={props.onClick} className={add(classes.li, props.link)} to="/App">
+          <Link onClick={props.onClick} className={add(classes.li, props.link)} to="/app">
             App
           </Link>
         </li>
         <li className={props.li}>
-          <Link onClick={props.onClick} className={add(classes.li, props.link)} to="/cnftdata">
+          <Link onClick={props.onClick} className={add(classes.li, props.link)} to="/data">
             CNFT Data
-          </Link>
-        </li>
-        <li className={props.li}>
-          <Link  onClick={props.onClick}className={add(classes.li, props.link)} to="/cryptodata">
-            Crypto Data
           </Link>
         </li>
         <li className={props.li}>

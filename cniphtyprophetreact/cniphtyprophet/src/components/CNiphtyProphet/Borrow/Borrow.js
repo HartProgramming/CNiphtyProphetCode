@@ -3,14 +3,17 @@ import { useState, useEffect } from "react";
 import Input from "../../Input/Input";
 import ADAprice from "../ADAprice/ADAprice";
 import classes from '../CNiphtyProphet.module.css';
+import Button from "../../UI/Button";
 
 function Borrow(props) {
+
+  const initialState = () => Number(window.localStorage.getItem('length')) || 0
 
   /* Set Value State */
   const [ADAPriceSOL, setADAPriceSOL] = useState(null);
   const [adaEOL, setADAEol] = useState(null);
   const [repaymentBorrow, setRepaymentBorrow] = useState(null);
-  const [lengthBorrow, setLengthBorrow] = useState(null);
+  const [lengthBorrow, setLengthBorrow] = useState(initialState);
   const [interestBorrow, setInterestBorrow] = useState(null);
   const [loanValueBorrow, setLoanStateBorrow] = useState(0);
   const [loanWInterestBorrow, setLoanInterestBorrow] = useState(null);
@@ -21,12 +24,6 @@ function Borrow(props) {
   const [adaInterestCharged, setAdaInterestCharged] = useState(null);
   const [adaBreakEvenPrice, setADABreakEvenPrice] = useState(null);
   const [repayInterestPlusLoan, setRepayInterestPlusLoan] = useState(0);
-
-  /* Loan Length function */
-  const SetLoanLengthBorrow = (e) => {
-    const days = e.target.value;
-    setLengthBorrow(days);
-  };
 
   /* ADA price at start of loan function */
   const SetADAPriceSOL = (e) => {
@@ -57,11 +54,11 @@ function Borrow(props) {
     };
 
   /* Mounts states of every input on page load */
+
   useEffect(() => {
       setADAEol("Set Buy Back ADA Price");
       setRepaymentBorrow();
       setADAPriceSOL("Set ADA Price at Loan");
-      setLengthBorrow("Set Loan Length");
       setInterestBorrow("Set Interest Rate");
       setLoanStateBorrow("Set Loan Value");
       setLoanInterestBorrow();
@@ -120,7 +117,7 @@ function Borrow(props) {
       loanValueDollars: loanValueDollars,
       repayInterestPlusLoan: repayInterestPlusLoan
     };
-    props.setData(borrowData);
+    props.summaryBorrowData(borrowData);
   }, [
     loanValueBorrow,
     loanValueDollars,
@@ -137,6 +134,22 @@ function Borrow(props) {
     adaBreakEvenPrice,
   ]);
 
+    /* Loan Length function */
+    const SetLoanLengthBorrow = (e) => {
+      setLengthBorrow(e.target.value);
+    };
+
+    const CNFTHandler = () => {
+      props.openCNFT(true);
+      props.closeBorrow(false);
+    }
+
+  useEffect(() => {
+    window.localStorage.setItem('length', lengthBorrow);
+    console.log(lengthBorrow)
+    console.log('set')
+  }, [lengthBorrow]);
+
   return (
     <>
       <h2 className={props.start}>Borrow</h2>
@@ -148,6 +161,7 @@ function Borrow(props) {
           name="borrow-length-days"
           onChange={SetLoanLengthBorrow}
           id="loan-length"
+          type='text'
           inputClass={classes.input}
           value={lengthBorrow}
         ></Input>
@@ -266,6 +280,7 @@ function Borrow(props) {
           value={profitLossADA}
         ></Input>
       </div>
+      <Button onClick={CNFTHandler} title='Next Step'/>
     </>
   );
 }

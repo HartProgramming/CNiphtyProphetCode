@@ -9,6 +9,7 @@ import Dropdown from "../../Dropdown/Dropdown";
 import DropdownUl from "../../DropdownUl/DropdownUl";
 import add from 'classnames';
 import cniphtyStyle from '../CNiphtyProphet.module.css';
+import Button from "../../UI/Button";
 
 function Crypto(props) {
 
@@ -49,6 +50,7 @@ function Crypto(props) {
   const [profitLossBorrow, setProfitLossBorrow] = useState();
   const [finalPosition, setFinalPosition] = useState();
   const [maxAmount, setMaxAmount] = useState();
+  const [difference, setDifference] = useState();
 
   const ChangeProjectCrypto = (e) => {
     let projectId;
@@ -128,6 +130,11 @@ function Crypto(props) {
   console.log(projectListCrypto)    
 }, []);
 
+const SummaryHandler = () => {
+  props.closeCrypto(false);
+  props.openSummary(true);
+}
+
   return (
     <>
       <h2 className={props.header}>Crypto Trade</h2>
@@ -180,6 +187,7 @@ function Crypto(props) {
           onChange={changeAmountHandler}
           inputClass={cniphtyStyle.input}
         />
+        <Input title='Max/Amount Purchased Difference' readonly value={difference}/>
         <Input
           readonly
           title="Total Invested"
@@ -224,6 +232,7 @@ function Crypto(props) {
           type="number"
         />
       </div>
+      <Button onClick={SummaryHandler} title='Summary Analysis' />
     </>
   );
 }

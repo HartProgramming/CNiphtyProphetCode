@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Input from "../../Input/Input";
 import classes from "./CNFT.module.css";
-import cniphtyStyle from '../CNiphtyProphet.module.css';
-import styles from '../../Dropdown/Dropdown.module.css';
+import cniphtyStyle from "../CNiphtyProphet.module.css";
+import styles from "../../Dropdown/Dropdown.module.css";
 import axios from "axios";
 import AdjustProjectList from "../../UI/AdjustProjectList";
 import cnftArray from "../../CNFTProjectData";
 import Dropdown from "../../Dropdown/Dropdown";
 import DropdownUl from "../../DropdownUl/DropdownUl";
-import add from 'classnames';
+import add from "classnames";
+import Button from "../../UI/Button";
 
 const CNFT = (props) => {
   const { loanValueBorrow, loanWInterestBorrow } = { ...props.data };
@@ -17,6 +18,7 @@ const CNFT = (props) => {
   const [purchasePriceCNFT, setPurchasePriceCNFT] = useState();
   const [salesPriceCNFT, setSalesPriceCNFT] = useState();
   const [profitLossADACNFT, setProfitLossADACNFT] = useState();
+  const [difference, setDifference] = useState();
 
   const changePurchasePriceHandler = (e) => {
     setPurchasePriceCNFT(e.target.value);
@@ -87,22 +89,28 @@ const CNFT = (props) => {
       });
   };
   useEffect(() => {
-      setPurchasePriceCNFT("Set Purchase Price");
-      setSalesPriceCNFT("Set Sales Price");
-      const chilled = document.querySelector("#project27");
-      chilled.checked = true;
-      ChangeProject("c56d4cceb8a8550534968e1bf165137ca41e908d2d780cc1402079bd");
+    setPurchasePriceCNFT("Set Purchase Price");
+    setSalesPriceCNFT("Set Sales Price");
+    const chilled = document.querySelector("#project27");
+    chilled.checked = true;
+    ChangeProject("c56d4cceb8a8550534968e1bf165137ca41e908d2d780cc1402079bd");
   }, []);
 
   useEffect(() => {
-    setProfitLossADACNFT(parseFloat(salesPriceCNFT - loanWInterestBorrow));
-  }, [salesPriceCNFT, loanWInterestBorrow]);
+    setProfitLossADACNFT(parseFloat(salesPriceCNFT - loanWInterestBorrow + difference));
+    setDifference(parseFloat(loanValueBorrow - purchasePriceCNFT));
+  }, [salesPriceCNFT, loanWInterestBorrow, loanValueBorrow, purchasePriceCNFT]);
 
   const ChangeFocus = (e) => {
     setTimeout(() => {
-      e.target.type = 'number'
-    e.target.value = "";
+      e.target.type = "number";
+      e.target.value = "";
     }, 10);
+  };
+
+  const CryptoHandler = () => {
+    props.closeCNFT(false);
+    props.openCrypto(true);
   };
 
   return (
@@ -110,17 +118,17 @@ const CNFT = (props) => {
       <h2 className={props.header}>CNFT Trade</h2>
       <h4 className={props.header}>Fill out Borrow section first</h4>
       <div className={props.container}>
-      <AdjustProjectList
-            containerClass={add(styles.selectOptionsContainer, classes.width)}
-            onClick={ChangeProject}
-            boxClass={styles.selectOptionsDivBox}
-            listOne={projectList}
-            inputClass={cniphtyStyle.input}
-            listTwo={projectListUl}
-            iconClass={styles.selectIcon}
-            selectListClass={styles.selectList}
-            listContainerClass={styles.listContainer}
-          />
+        <AdjustProjectList
+          containerClass={add(styles.selectOptionsContainer, classes.width)}
+          onClick={ChangeProject}
+          boxClass={styles.selectOptionsDivBox}
+          listOne={projectList}
+          inputClass={cniphtyStyle.input}
+          listTwo={projectListUl}
+          iconClass={styles.selectIcon}
+          selectListClass={styles.selectList}
+          listContainerClass={styles.listContainer}
+        />
         <Input readonly title="Floor Price" value={floor} />
         <Input
           readonly
@@ -135,7 +143,11 @@ const CNFT = (props) => {
           inputClass={cniphtyStyle.input}
           onChange={changePurchasePriceHandler}
         />
-
+        <Input
+          title="Borrowed/Purchase Difference"
+          type="number"
+          value={difference}
+        />
         <Input
           title="Sale Price"
           value={salesPriceCNFT}
@@ -156,6 +168,7 @@ const CNFT = (props) => {
           readonly
         />
       </div>
+      <Button onClick={CryptoHandler} title="Next Step" />
     </>
   );
 };

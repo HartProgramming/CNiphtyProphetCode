@@ -1,0 +1,12 @@
+.header{
+    text-align: center;
+    color: blue;
+}
+
+.div{
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    width: 90%;
+    color: blue;
+}

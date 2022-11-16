@@ -85,7 +85,7 @@
 
 @media screen and (max-width: 1000px) {
     .header{
-        display: none;
+        display: flex;
     }
     .container{
         width: 100%;
@@ -122,4 +122,10 @@
         height: 70px;
     }
 
+}
+
+@media screen and (max-width: 760px) {
+    .header{
+        display: none;
+    }
 }

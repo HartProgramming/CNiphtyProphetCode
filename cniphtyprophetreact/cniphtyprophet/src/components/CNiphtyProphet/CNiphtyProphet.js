@@ -6,53 +6,81 @@ import CNFT from "./CNFT/CNFT";
 import Crypto from "./Crypto/Crypto";
 import classes from "./CNiphtyProphet.module.css";
 import Loading from "../UI/Loading";
+import Button from "../UI/Button";
+import SummaryAnalysis from "./SummaryAnalysis";
 
 function CNiphtyProphet() {
-  const [data, setData] = useState(null);
+  const [lendData, setLendData] = useState(null);
+  const [borrowData, setBorrowData] = useState(null);
+  const [cnftData, setCNFTData] = useState(null);
+  const [cryptoData, setCryptoData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [step1, setStep1] = useState(true);
+  const [lend, setLend] = useState(false);
+  const [lendSummary, setLendSummary] = useState(false);
+  const [processRestart, setProcessRestart] = useState(false);
+  const [borrow, setBorrow] = useState(false);
+  const [cnft, setCNFT] = useState(false);
+  const [crypto, setCrypto] = useState(false);
+  const [borrowSummary, setBorrowSummary] = useState(false);
 
-  useEffect(()=> {
+  const BorrowProcessHandler = () => {
+    setStep1(false);
+    setBorrow(true);
+  };
+
+  const LendProcessHandler = () => {
+    setStep1(false);
+    setLendSummary(false)
+    setLend(true);
+    console.log(lend)
+  };
+
+  useEffect(() => {
     setTimeout(() => {
-      setLoading(false)
+      setLoading(false);
     }, 1200);
-  })
+  }, []);
+
+  useEffect(() => {
+    if(processRestart === true){
+      setLend(false);
+      setLendSummary(false);
+      setStep1(true);
+      setProcessRestart(false)
+      console.log('process')
+    }
+  }, [processRestart, lend, lendSummary, step1])
 
   return (
     <>
-      {loading && <Loading />}
-        <Card className={loading ? classes.wrapper : classes.container}>
-          <div className={classes.panelcontainer}>
-            <Card className={classes.panelBorrow}>
-              <Borrow
-                start={classes.header}
-                container={classes.inputscontainer}
-                setData={setData}
+      <Card className={classes.container}>
+        {step1 && (
+          <>
+            <div className={classes.header}>
+              <h2>Choose your collateral position</h2>
+              <hr className={classes.hr}></hr>
+            </div>
+            <div className={classes.buttonProcessContainer}>
+              <Button
+                onClick={BorrowProcessHandler}
+                style={classes.button}
+                title="Borrow"
               />
-            </Card>
-            <Card className={classes.panelLend}>
-              <Lend
-                header={classes.header}
-                container={classes.inputscontainer}
+              <Button
+                onClick={LendProcessHandler}
+                style={classes.button}
+                title="Lend"
               />
-            </Card>
-          </div>
-          <div className={classes.panelcontainer}>
-            <Card className={classes.panelCNFT}>
-              <CNFT
-                header={classes.header}
-                container={classes.inputscontainer}
-                data={data}
-              />
-            </Card>
-            <Card className={classes.panelCrypto}>
-              <Crypto
-                data={data}
-                header={classes.header}
-                container={classes.inputscontainer}
-              />
-            </Card>
-          </div>
-        </Card>
+            </div>
+          </>
+        )}
+        {lend && <Lend closeLend={setLend} openSummary={setLendSummary} summaryLendData={setLendData} header={classes.header}/>}
+        {lendSummary && <SummaryAnalysis restart={setProcessRestart} data={lendData}/>}
+        {borrow && <Borrow closeBorrow={setBorrow} openCNFT={setCNFT} summaryBorrowData={setBorrowData}/>}
+        {cnft && <CNFT cnftData={setCNFTData} data={borrowData} closeCNFT={setCNFT} openCrypto={setCrypto}/>}
+        {crypto && <Crypto cryptoData={setCryptoData} data={borrowData} closeCrypto={setCrypto} openSummary={setBorrowSummary}/>}
+      </Card>
     </>
   );
 }

@@ -1,12 +1,11 @@
 import React from "react";
 import classes from './Card.module.css';
+import add from 'classnames';
 
 function Card(props){
 
-    const std = `${classes.div} ${props.className}`
-
     return(
-        <div className={std}>
+        <div className={add(classes.div, props.className)}>
             {props.children}
         </div>
     )

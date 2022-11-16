@@ -3,6 +3,7 @@ import Input from "../../Input/Input";
 import { useState, useEffect } from "react";
 import classes from "../CNiphtyProphet.module.css";
 import ADAprice from "../ADAprice/ADAprice";
+import Button from "../../UI/Button";
 
 function Lend(props) {
   /* Set the type of the input */
@@ -18,6 +19,8 @@ function Lend(props) {
   );
   const [ADApriceSOL, setADApriceSOL] = useState(null);
   const [ADAPriceEOL, setADAPriceEOL] = useState(null);
+
+  const [closeLend, setCloseLend] = useState(false);
 
   /* Set Initial Value on mount */
   useEffect(() => {
@@ -41,9 +44,9 @@ function Lend(props) {
     setLoanStateLend(e.target.value);
   };
 
-  const SetSOL = e => {
+  const SetSOL = (e) => {
     setADApriceSOL(e.target.value);
-  }
+  };
 
   /* Set the value of the loan interest and alter ADA+Interest, ADA+Interest converted to dollar @ current ADA price, and ADA+Interest converted to Dollar @ EOL ADA price */
   const SetLoanInterest = (e) => {
@@ -57,8 +60,8 @@ function Lend(props) {
 
   const ChangeFocusLend = (e) => {
     setTimeout(() => {
-      e.target.type = 'number'
-    e.target.value = "";
+      e.target.type = "number";
+      e.target.value = "";
     }, 10);
   };
 
@@ -72,12 +75,34 @@ function Lend(props) {
         .toFixed(2)
         .toLocaleString()
     );
-  }, [interestLend, loanValueLend, loanInterestLendADA, ADApriceSOL, ADAPriceEOL, loanInterestLendADA]);
+  }, [
+    interestLend,
+    loanValueLend,
+    loanInterestLendADA,
+    ADApriceSOL,
+    ADAPriceEOL,
+    loanInterestLendADA,
+  ]);
+
+  const SubmitHandler = () => {
+    const lendData = [
+      ['Loan Value ADA',
+      loanValueLend
+    ],['Loan Value w/Interest ADA', loanInterestLendADA],
+    ['End of Loan Predicted ($) Value', loanInterestLendDollarEOL]
+    ];
+    console.log(lendData);
+    props.closeLend(false)
+    props.summaryLendData(lendData);
+    props.openSummary(true)
+  };
 
   return (
     <>
-      <h2 className={props.header}>Lend</h2>
       <div className={props.container}>
+        <div className={props.header}>
+          <h2>Lend</h2>
+        </div>
         <ADAprice></ADAprice>
         <Input
           labelClass={classes.label}
@@ -87,7 +112,7 @@ function Lend(props) {
           inputClass={classes.input}
           id="lend-loan-length"
           for="lend-loan-length"
-          setp='1'
+          setp="1"
           value={lengthLend}
           name="lend-loan-length"
         />
@@ -96,9 +121,9 @@ function Lend(props) {
           onFocus={ChangeFocusLend}
           title="ADA Price Start of Loan"
           onChange={SetSOL}
-          step='.01'
+          step=".01"
           inputClass={classes.input}
-          id='lend-loan-length'
+          id="lend-loan-length"
           value={ADApriceSOL}
         />
         <Input
@@ -168,6 +193,11 @@ function Lend(props) {
           value={loanInterestLendDollarEOL}
         />
       </div>
+      {!closeLend &&
+      <div className={classes.buttoncontainer}>
+        <Button title="Submit" style={classes.button} onClick={SubmitHandler} />
+      </div>
+}
     </>
   );
 }

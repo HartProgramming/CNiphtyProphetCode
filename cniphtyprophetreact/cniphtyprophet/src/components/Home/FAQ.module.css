@@ -1,0 +1,38 @@
+.container{
+    width: 90%;
+    height: auto;
+    display: flex;
+    margin: auto;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+
+.faqContainer{
+color: blue;
+font-size: 18px;
+letter-spacing: 1.2px;
+font-weight: 500;
+width: 65%;
+font-family: 'Poppins';
+}
+
+.iconcontainer{
+    justify-content: flex-end;
+    display: flex;
+    width: 25%;
+}
+
+.icon{
+    width: 30px;
+    height: 30px;
+    color: blue;
+}
+
+.icon:hover{
+    scale: 1.15;
+}
+
+.hr{
+border: 1px solid blue;
+width: 90%;
+}

@@ -4,26 +4,31 @@
   align-items: center;
   margin: auto;
   padding: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  background: linear-gradient(145deg, rgb(5, 5, 220), rgb(8, 8, 216));
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background: linear-gradient(145deg, rgb(250, 250, 250), rgb(247, 247, 247));
   border-radius: 25px;
-  width: 310px;
-  box-shadow: 9px 9px 11px rgb(21, 21, 186), -9px 0 11px rgb(21, 21, 186);
+  width: 80%;
+  box-shadow: 2px 2px 5px rgb(21, 21, 186), -2px -2px 5px rgb(21, 21, 186);
 }
 
 .label {
-  color: white;
+  color: blue;
+  font-weight: 600;
   font-family: "Poppins";
 }
 
 .input {
-  color: white;
+  color: blue;
+  font-weight: 500;
   font-family: "Poppins";
   text-align: right;
   margin-left: 15px;
-  background: linear-gradient(145deg, rgb(34, 71, 255), rgb(52, 52, 255));
+  background-color: white;
+  font-size: 14px;
+  border: 1px solid black;
   border-radius: 12px;
-  border: none;
+  box-shadow: 1px 1px 1px black, -1px -1px 1px black;
   padding: 7px;
 }

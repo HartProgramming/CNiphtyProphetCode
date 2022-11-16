@@ -39,6 +39,9 @@ const NavBar = () => {
     window.addEventListener("resize", innerWidth);
     console.log(windowWidth);
     console.log(mobile);
+    if(windowWidth > 1000){
+      setMobileNav(null)
+    }
   }, [windowWidth]);
 
   return (
