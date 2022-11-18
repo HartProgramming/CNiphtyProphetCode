@@ -2,27 +2,55 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Input from "../../Input/Input";
 import ADAprice from "../ADAprice/ADAprice";
-import classes from '../CNiphtyProphet.module.css';
+import classes from "../CNiphtyProphet.module.css";
 import Button from "../../UI/Button";
 
 function Borrow(props) {
-
-  const initialState = () => Number(window.localStorage.getItem('length')) || 0
+  const initialLength = () =>
+    Number(window.localStorage.getItem("borrow-length")) || 0;
+  const initialSOL = () =>
+    Number(window.localStorage.getItem("borrow-sol")) || 0;
+  const initialEOL = () =>
+    Number(window.localStorage.getItem("borrow-eol")) || 0;
+  const initialInterest = () =>
+    Number(window.localStorage.getItem("borrow-interest")) || 0;
+  const initialRepay = () =>
+    Number(window.localStorage.getItem("borrow-repay")) || 0;
+  const initialLoanWInterest = () =>
+    Number(window.localStorage.getItem("borrow-loanwinterest")) || 0;
+  const initialBorrowPNL = () =>
+    Number(window.localStorage.getItem("borrow-pnl$")) || 0;
+  const initialPNLAda = () =>
+    Number(window.localStorage.getItem("borrow-pnlAda")) || 0;
+  const initialLoanValueDollar = () =>
+    Number(window.localStorage.getItem("borrow-loanvalue$")) || 0;
+  const initialRepayInterest = () =>
+    Number(window.localStorage.getItem("borrow-repayinterest")) || 0;
+  const initialBreakEven = () =>
+    Number(window.localStorage.getItem("borrow-ada-breakeven")) || 0;
+  const initialLoanValue = () =>
+    Number(window.localStorage.getItem("borrow-length")) || 0;
 
   /* Set Value State */
-  const [ADAPriceSOL, setADAPriceSOL] = useState(null);
-  const [adaEOL, setADAEol] = useState(null);
-  const [repaymentBorrow, setRepaymentBorrow] = useState(null);
-  const [lengthBorrow, setLengthBorrow] = useState(initialState);
-  const [interestBorrow, setInterestBorrow] = useState(null);
-  const [loanValueBorrow, setLoanStateBorrow] = useState(0);
-  const [loanWInterestBorrow, setLoanInterestBorrow] = useState(null);
-  const [profitLoss, setProfitLoss] = useState(null);
-  const [profitLossADA, setProfitLossADA] = useState(null);
-  const [loanValueDollars, setLoanValueDollars] = useState(null);
-  const [repaymentInterestBorrow, setRepaymentInterestBorrow] = useState(null);
+  const [ADAPriceSOL, setADAPriceSOL] = useState(initialSOL);
+  const [adaEOL, setADAEol] = useState(initialEOL);
+  const [repaymentBorrow, setRepaymentBorrow] = useState(initialRepay);
+  const [lengthBorrow, setLengthBorrow] = useState(initialLength);
+  const [interestBorrow, setInterestBorrow] = useState(initialInterest);
+  const [loanValueBorrow, setLoanStateBorrow] = useState(initialLoanValue);
+  const [loanWInterestBorrow, setLoanInterestBorrow] = useState(
+    initialLoanWInterest
+  );
+  const [profitLoss, setProfitLoss] = useState(initialBorrowPNL);
+  const [profitLossADA, setProfitLossADA] = useState(initialPNLAda);
+  const [loanValueDollars, setLoanValueDollars] = useState(
+    initialLoanValueDollar
+  );
+  const [repaymentInterestBorrow, setRepaymentInterestBorrow] = useState(
+    initialRepayInterest
+  );
   const [adaInterestCharged, setAdaInterestCharged] = useState(null);
-  const [adaBreakEvenPrice, setADABreakEvenPrice] = useState(null);
+  const [adaBreakEvenPrice, setADABreakEvenPrice] = useState(initialBreakEven);
   const [repayInterestPlusLoan, setRepayInterestPlusLoan] = useState(0);
 
   /* ADA price at start of loan function */
@@ -46,35 +74,16 @@ function Borrow(props) {
     setInterestBorrow(e.target.value);
   };
 
-    const ChangeFocus = (e) => {
-      setTimeout(() => {
-        e.target.type = 'number'
+  const ChangeFocus = (e) => {
+    setTimeout(() => {
       e.target.value = "";
-      }, 10);
-    };
-
-  /* Mounts states of every input on page load */
-
-  useEffect(() => {
-      setADAEol("Set Buy Back ADA Price");
-      setRepaymentBorrow();
-      setADAPriceSOL("Set ADA Price at Loan");
-      setInterestBorrow("Set Interest Rate");
-      setLoanStateBorrow("Set Loan Value");
-      setLoanInterestBorrow();
-      setProfitLoss();
-      setProfitLossADA();
-      setLoanValueDollars();
-      setRepaymentInterestBorrow();
-      setAdaInterestCharged();
-      setADABreakEvenPrice();
-      setRepayInterestPlusLoan("Set");
-  }, []);
+    }, 10);
+  };
 
   /* UseEffect manages updating the various inputs without direct input
     that require calculation */
 
-  useEffect(() => {      
+  useEffect(() => {
     setLoanValueDollars(
       (ADAPriceSOL * loanValueBorrow).toFixed(2).toLocaleString()
     );
@@ -110,14 +119,24 @@ function Borrow(props) {
         .toFixed(2)
         .toLocaleString()
     );
-      /* Data of the various states lifted up as an object via setData prop */
+    /* Data of the various states lifted up as an object via setData prop */
+    const summaryBorrowData = [
+      { Name: "Loan Value ADA", Data: loanValueBorrow },
+      { Name: "Loan Value w/Interest ADA", Data: loanWInterestBorrow },
+      { Name: "Loan Value Dollars", Data: loanValueDollars },
+      {
+        Name: "Repaid Amt. w/Interest (Based on EOL Price)",
+        Data: repayInterestPlusLoan,
+      },
+    ];
+    props.summaryBorrowData(summaryBorrowData);
     const borrowData = {
       loanValueBorrow: loanValueBorrow,
       loanWInterestBorrow: loanWInterestBorrow,
       loanValueDollars: loanValueDollars,
-      repayInterestPlusLoan: repayInterestPlusLoan
+      repayInterestPlusLoan: repayInterestPlusLoan,
     };
-    props.summaryBorrowData(borrowData);
+    props.data(borrowData);
   }, [
     loanValueBorrow,
     loanValueDollars,
@@ -134,26 +153,53 @@ function Borrow(props) {
     adaBreakEvenPrice,
   ]);
 
-    /* Loan Length function */
-    const SetLoanLengthBorrow = (e) => {
-      setLengthBorrow(e.target.value);
-    };
+  /* Loan Length function */
+  const SetLoanLengthBorrow = (e) => {
+    setLengthBorrow(e.target.value);
+  };
 
-    const CNFTHandler = () => {
-      props.openCNFT(true);
-      props.closeBorrow(false);
-    }
+  const CNFTHandler = () => {
+    props.openCNFT(true);
+    props.closeBorrow(false);
+  };
+
+  const PreviousHandler = () => {
+    props.previous(true);
+  };
 
   useEffect(() => {
-    window.localStorage.setItem('length', lengthBorrow);
-    console.log(lengthBorrow)
-    console.log('set')
-  }, [lengthBorrow]);
+    window.localStorage.setItem("borrow-length", lengthBorrow);
+    window.localStorage.setItem("borrow-sol", ADAPriceSOL);
+    window.localStorage.setItem("borrow-eol", adaEOL);
+    window.localStorage.setItem("borrow-interest", interestBorrow);
+    window.localStorage.setItem("borrow-repay", repaymentBorrow);
+    window.localStorage.setItem("borrow-loanwinterest", loanWInterestBorrow);
+    window.localStorage.setItem("borrow-pnl$", profitLoss);
+    window.localStorage.setItem("borrow-pnlAda", profitLossADA);
+    window.localStorage.setItem("borrow-loanvalue$", loanValueDollars);
+    window.localStorage.setItem(
+      "borrow-repayinterest",
+      repaymentInterestBorrow
+    );
+    window.localStorage.setItem("borrow-ada-breakeven", adaBreakEvenPrice);
+    window.localStorage.setItem("borrow-loanvalueada", loanValueBorrow);
+  }, [
+    lengthBorrow,
+    adaBreakEvenPrice,
+    adaEOL,
+    ADAPriceSOL,
+    interestBorrow,
+    repaymentBorrow,
+    loanWInterestBorrow,
+    profitLoss,
+    profitLossADA,
+    loanValueDollars,
+    loanValueBorrow,
+  ]);
 
   return (
     <>
-      <h2 className={props.start}>Borrow</h2>
-      <h4 className={props.start}>Fill out first</h4>
+      <h2 className={classes.headerprocess}>Borrow - Shorting ADA</h2>
       <div className={props.container}>
         <Input
           onFocus={ChangeFocus}
@@ -161,7 +207,7 @@ function Borrow(props) {
           name="borrow-length-days"
           onChange={SetLoanLengthBorrow}
           id="loan-length"
-          type='text'
+          type="number"
           inputClass={classes.input}
           value={lengthBorrow}
         ></Input>
@@ -175,6 +221,7 @@ function Borrow(props) {
           inputClass={classes.input}
           id="ada-price-sol"
           value={ADAPriceSOL}
+          type="number"
         ></Input>{" "}
         <Input
           onFocus={ChangeFocus}
@@ -185,6 +232,7 @@ function Borrow(props) {
           inputClass={classes.input}
           id="loan-value"
           value={loanValueBorrow}
+          type="number"
         ></Input>
         <Input
           title="Loan Value ($)"
@@ -203,6 +251,7 @@ function Borrow(props) {
           inputClass={classes.input}
           id="loan-interest"
           value={interestBorrow}
+          type="number"
         ></Input>
         <Input
           title="Loan w/Interest ADA"
@@ -234,6 +283,7 @@ function Borrow(props) {
           title="Buy back ADA Price ($)"
           name="buy-back-ada-price"
           onChange={SetBuyBack}
+          type="number"
           inputClass={classes.input}
           step=".01"
           id="buy-back"
@@ -280,7 +330,10 @@ function Borrow(props) {
           value={profitLossADA}
         ></Input>
       </div>
-      <Button onClick={CNFTHandler} title='Next Step'/>
+      <div className={classes.buttoncontainer}>
+        <Button style={classes.buttonprocess} onClick={PreviousHandler} title="Previous" />
+        <Button style={classes.buttonprocess} onClick={CNFTHandler} title="Next Step" />
+      </div>
     </>
   );
 }

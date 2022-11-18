@@ -86,16 +86,22 @@ function Lend(props) {
 
   const SubmitHandler = () => {
     const lendData = [
-      ['Loan Value ADA',
-      loanValueLend
-    ],['Loan Value w/Interest ADA', loanInterestLendADA],
-    ['End of Loan Predicted ($) Value', loanInterestLendDollarEOL]
-    ];
+      {Name: 'Loan Value ADA',
+      Data: loanValueLend},
+      {Name: 'Loan Value w/Interest ADA',
+      Data: loanInterestLendADA},
+      {Name: 'End of Loan Predicted ($) Value',
+      Data: loanInterestLendDollarEOL}
+  ];
     console.log(lendData);
     props.closeLend(false)
     props.summaryLendData(lendData);
     props.openSummary(true)
   };
+
+  const PreviousHandler = () => {
+    props.previous(true)
+  }
 
   return (
     <>
@@ -195,7 +201,8 @@ function Lend(props) {
       </div>
       {!closeLend &&
       <div className={classes.buttoncontainer}>
-        <Button title="Submit" style={classes.button} onClick={SubmitHandler} />
+        <Button title="Previous" style={classes.buttonprocess} onClick={PreviousHandler} />
+        <Button title="Submit" style={classes.buttonprocess} onClick={SubmitHandler} />
       </div>
 }
     </>

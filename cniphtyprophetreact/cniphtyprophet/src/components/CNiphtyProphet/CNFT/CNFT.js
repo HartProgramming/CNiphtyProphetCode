@@ -26,9 +26,8 @@ const CNFT = (props) => {
 
   const changeSalesPriceHandler = (e) => {
     setSalesPriceCNFT(e.target.value);
+    console.log(props.data);
   };
-
-  console.log(props.data);
 
   const projectList = [];
   const projectListUl = [];
@@ -97,7 +96,9 @@ const CNFT = (props) => {
   }, []);
 
   useEffect(() => {
-    setProfitLossADACNFT(parseFloat(salesPriceCNFT - loanWInterestBorrow + difference));
+    setProfitLossADACNFT(
+      parseFloat(salesPriceCNFT - loanWInterestBorrow + difference)
+    );
     setDifference(parseFloat(loanValueBorrow - purchasePriceCNFT));
   }, [salesPriceCNFT, loanWInterestBorrow, loanValueBorrow, purchasePriceCNFT]);
 
@@ -111,24 +112,33 @@ const CNFT = (props) => {
   const CryptoHandler = () => {
     props.closeCNFT(false);
     props.openCrypto(true);
+    const CNFTData = [{ Name: "Profit/Loss ADA", Data: profitLossADACNFT }];
+    props.cnftData(CNFTData);
+  };
+
+  const PreviousHandler = () => {
+    props.previous(true);
+    props.closeCNFT(false);
   };
 
   return (
     <>
-      <h2 className={props.header}>CNFT Trade</h2>
-      <h4 className={props.header}>Fill out Borrow section first</h4>
+      <h2 className={cniphtyStyle.headerprocess}>CNFT Trade</h2>
       <div className={props.container}>
-        <AdjustProjectList
-          containerClass={add(styles.selectOptionsContainer, classes.width)}
-          onClick={ChangeProject}
-          boxClass={styles.selectOptionsDivBox}
-          listOne={projectList}
-          inputClass={cniphtyStyle.input}
-          listTwo={projectListUl}
-          iconClass={styles.selectIcon}
-          selectListClass={styles.selectList}
-          listContainerClass={styles.listContainer}
-        />
+        <div className={cniphtyStyle.dropdowncontainer}>
+          <AdjustProjectList
+            containerClass={add(styles.selectOptionsContainer, classes.width)}
+            onClick={ChangeProject}
+            boxClass={styles.selectOptionsDivBox}
+            listOne={projectList}
+            inputClass={cniphtyStyle.input}
+            listTwo={projectListUl}
+            iconClass={styles.selectIcon}
+            selectListClass={styles.selectList}
+            listContainerClass={styles.listContainer}
+          />
+        </div>
+
         <Input readonly title="Floor Price" value={floor} />
         <Input
           readonly
@@ -168,7 +178,18 @@ const CNFT = (props) => {
           readonly
         />
       </div>
-      <Button onClick={CryptoHandler} title="Next Step" />
+      <div className={cniphtyStyle.buttoncontainer}>
+        <Button
+          style={cniphtyStyle.buttonprocess}
+          onClick={PreviousHandler}
+          title="Previous"
+        />
+        <Button
+          style={cniphtyStyle.buttonprocess}
+          onClick={CryptoHandler}
+          title="Next Step"
+        />
+      </div>
     </>
   );
 };

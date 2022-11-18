@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import classes from "./FAQ.module.css";
 
 const FAQ = (props) => {
+
   return (
     <>
       <div className={classes.container}>
@@ -12,7 +12,7 @@ const FAQ = (props) => {
           <FontAwesomeIcon
             onClick={props.onClick}
             className={classes.icon}
-            icon={faPlus}
+            icon={props.icon}
           />
         </div>
       </div>

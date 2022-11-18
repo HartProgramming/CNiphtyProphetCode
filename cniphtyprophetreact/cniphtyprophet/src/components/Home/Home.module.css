@@ -92,33 +92,10 @@
     scale: 1.03;
 }
 
-.listAnimation{
-    animation: flip-card 2s;
-    display: none;
-    animation-fill-mode: forwards;
-}
-
 .none{
     display: none;
 }
 
-.hr{
-    width: 45%;
-    display: flex;
-    margin: auto;
-    margin-right: 85%;
-    border: .2px solid blue;
-    justify-content: flex-start;
-}
-
-@keyframes flip-card {
-    0%{
-        transform: rotateY(0deg);
-    }
-    100%{
-        transform: rotateY(180deg);
-    }
-}
 
 .h2{
     text-align: center;

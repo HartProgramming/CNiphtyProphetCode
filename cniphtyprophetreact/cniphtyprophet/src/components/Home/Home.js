@@ -10,6 +10,7 @@ import HomeButtonCard from "./HomeButtonCard";
 import FAQ from "./FAQ";
 import FAQAnswer from "./FAQAnswer";
 import Modal from "../UI/Modal";
+import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 
 const Home = () => {
   const appListArr = [
@@ -48,7 +49,6 @@ const Home = () => {
       <li key={`app${x}`} className={classes.li}>
         {x}
       </li>
-      <hr />
     </>
   ));
   const data = dataListArr.map((x) => (
@@ -56,7 +56,6 @@ const Home = () => {
       <li key={`data${x}`} className={classes.li}>
         {x}
       </li>
-      <hr />
     </>
   ));
   const plans = plansArr.map((x) => (
@@ -64,7 +63,6 @@ const Home = () => {
       <li key={`plan${x}`} className={classes.li}>
         {x}
       </li>
-      <hr className={classes.hr} />
     </>
   ));
   const links = linksArr.map((x) => (
@@ -74,7 +72,6 @@ const Home = () => {
           {x[1]}
         </a>
       </li>
-      <hr />
     </>
   ));
 
@@ -235,7 +232,7 @@ const Home = () => {
             onClick={DetailsHandler2}
             cardClass={classes.list}
             h2Class={classes.h2}
-            h2="CNFT and Crypto Data Tools, Reducing your Research Time"
+            h2="Reduce your Research Time with our CNFT and Crypto Data Tools"
             buttonPage={classes.buttonPage}
             title="Data"
             detailsTitle="Details"
@@ -249,7 +246,7 @@ const Home = () => {
             cardClass={classes.list}
             h2Class={classes.h2}
             title="Plans"
-            h2="Free, Monthly, Yearly, and Lifetime Memberships"
+            h2="Free, Monthly, Yearly, and Lifetime Memberships (TBD)"
             buttonPage={classes.buttonPage}
             detailsTitle="Details"
             detailsClass={classes.detailsButton}
@@ -283,6 +280,7 @@ const Home = () => {
               <FAQAnswer answer="This is not a borrowing and lending platform. We implement no smart contracts. The wallet connector is for verifying your membership via NFT and will store your positions. This feature will be available at a later date." />
             )
           }
+          icon={answer1 ? faMinus : faPlus}
           onClick={AnswerHandler1}
           question="Can you lend and borrow on here?"
         />
@@ -292,6 +290,7 @@ const Home = () => {
               <FAQAnswer answer="This is a Cardano only platform. However, you can use the same formulas and process (available in discord) for NFTs on other chains." />
             )
           }
+          icon={answer2 ? faMinus : faPlus}
           onClick={AnswerHandler2}
           question="Is this tool only for Cardano NFTs?"
         />
@@ -301,6 +300,7 @@ const Home = () => {
               <FAQAnswer answer="This tool will provide you confidence by providing you with a visual representation of the result of a borrowing position by shorting ADA and simultaneously using the funds to trade crypto or NFTs." />
             )
           }
+          icon={answer3 ? faMinus : faPlus}
           onClick={AnswerHandler3}
           question="Why should I use this tool?"
         />
@@ -310,6 +310,7 @@ const Home = () => {
               <FAQAnswer answer="There will be no recommendations provided as none of the data or tools are aimed toward providing financial advice." />
             )
           }
+          icon={answer4 ? faMinus : faPlus}
           onClick={AnswerHandler4}
           question="Does the tool provide recommendations?"
         />
@@ -319,6 +320,7 @@ const Home = () => {
               <FAQAnswer answer="The first feature will be a portfolio tool that saves the borrow and lend positions you submit. As LendingPond, FluidTokens, and other protocols release more features CNiphtyProphet will as well." />
             )
           }
+          icon={answer5 ? faMinus : faPlus}
           onClick={AnswerHandler5}
           question="If this is V1 of CNiphtyProphet, what will V2 consist of?"
         />
@@ -328,6 +330,7 @@ const Home = () => {
               <FAQAnswer answer="A paid membership will consist of all the features in V2 at this time. Check out the Plans page for more details. " />
             )
           }
+          icon={answer6 ? faMinus : faPlus}
           onClick={AnswerHandler6}
           question="What features are included in a membership?"
         />
@@ -337,6 +340,7 @@ const Home = () => {
               <FAQAnswer answer="We are not partnered with anyone at this time. If you are a NFT project and interested in partnering to provide holders with membership benefits to our platform." />
             )
           }
+          icon={answer7 ? faMinus : faPlus}
           onClick={AnswerHandler7}
           question="Are you partnered with anyone?"
         />

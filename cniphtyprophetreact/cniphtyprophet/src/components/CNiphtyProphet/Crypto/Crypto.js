@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Input from "../../Input/Input";
 import classes from "./Crypto.module.css";
-import styles from '../../Dropdown/Dropdown.module.css';
+import styles from "../../Dropdown/Dropdown.module.css";
 import AdjustProjectList from "../../UI/AdjustProjectList";
 import axios from "axios";
 import tokenSortList from "../../CryptoProjectData";
 import Dropdown from "../../Dropdown/Dropdown";
 import DropdownUl from "../../DropdownUl/DropdownUl";
-import add from 'classnames';
-import cniphtyStyle from '../CNiphtyProphet.module.css';
+import add from "classnames";
+import cniphtyStyle from "../CNiphtyProphet.module.css";
 import Button from "../../UI/Button";
 
 function Crypto(props) {
-
   const projectListCrypto = [];
   const projectListUlCrypto = [];
 
@@ -106,8 +105,18 @@ function Crypto(props) {
     setProfitLoss(
       parseFloat(amountPurchased * salePrice - totalInvested).toFixed(2)
     );
-    setProfitLossBorrow(parseFloat(finalPosition - repayInterestPlusLoan).toFixed(2));
-  }, [salePrice, amountPurchased, totalInvested, purchasePrice, finalPosition, repayInterestPlusLoan]);
+    console.log(maxAmount);
+    setProfitLossBorrow(
+      parseFloat(finalPosition - repayInterestPlusLoan).toFixed(2)
+    );
+  }, [
+    salePrice,
+    amountPurchased,
+    totalInvested,
+    purchasePrice,
+    finalPosition,
+    repayInterestPlusLoan,
+  ]);
 
   useEffect(() => {
     setPurchasePrice("Set Purchase Price");
@@ -117,30 +126,39 @@ function Crypto(props) {
 
   const ChangeFocus = (e) => {
     setTimeout(() => {
-      e.target.type = 'number'
-    e.target.value = "";
+      e.target.type = "number";
+      e.target.value = "";
     }, 10);
   };
 
   useEffect(() => {
-          const aave = document.querySelector("#crypto0");
+    const aave = document.querySelector("#crypto0");
     ChangeProjectCrypto("aave");
     aave.checked = true;
-  console.log(aave)
-  console.log(projectListCrypto)    
-}, []);
+    console.log(aave);
+    console.log(projectListCrypto);
+  }, []);
 
-const SummaryHandler = () => {
-  props.closeCrypto(false);
-  props.openSummary(true);
-}
+  const SummaryHandler = () => {
+    props.closeCrypto(false);
+    props.openSummary(true);
+    const data = [
+      { Name: "Profit/Loss Borrowed Payment ($)", Data: profitLossBorrow },
+    ];
+    props.cryptoData(data);
+  };
+
+  const PreviousHandler = () => {
+    props.previous(true);
+    props.closeCrypto(false);
+  };
 
   return (
     <>
-      <h2 className={props.header}>Crypto Trade</h2>
-      <h4 className={props.header}>Fill out Borrow section first</h4>
+      <h2 className={cniphtyStyle.headerprocess}>Crypto Trade</h2>
       <div className={props.container}>
-      <AdjustProjectList
+        <div className={cniphtyStyle.dropdowncontainer}>
+          <AdjustProjectList
             imgClass={styles.img}
             containerClass={add(styles.selectOptionsContainer, classes.width)}
             onClick={ChangeProjectCrypto}
@@ -152,6 +170,7 @@ const SummaryHandler = () => {
             selectListClass={styles.selectList}
             listContainerClass={styles.listContainer}
           />
+        </div>
         <Input readonly title="Coin Price" value={price} />
         <Input
           readonly
@@ -187,7 +206,11 @@ const SummaryHandler = () => {
           onChange={changeAmountHandler}
           inputClass={cniphtyStyle.input}
         />
-        <Input title='Max/Amount Purchased Difference' readonly value={difference}/>
+        <Input
+          title="Max/Amount Purchased Difference"
+          readonly
+          value={difference}
+        />
         <Input
           readonly
           title="Total Invested"
@@ -227,12 +250,23 @@ const SummaryHandler = () => {
         />
         <Input
           readonly
-          title="Profit/Loss Borrow Payment ($)"
+          title="Profit/Loss Borrowed Payment ($)"
           value={profitLossBorrow}
           type="number"
         />
       </div>
-      <Button onClick={SummaryHandler} title='Summary Analysis' />
+      <div className={cniphtyStyle.buttoncontainer}>
+        <Button
+          style={cniphtyStyle.buttonprocess}
+          onClick={PreviousHandler}
+          title="Previous"
+        />
+        <Button
+          style={cniphtyStyle.buttonprocess}
+          onClick={SummaryHandler}
+          title="Submit"
+        />
+      </div>
     </>
   );
 }
